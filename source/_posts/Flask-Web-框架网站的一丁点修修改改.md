@@ -5,9 +5,11 @@ toc: true
 date: 2018-07-20 20:22:19
 tags:
 - Flask
-categories: Web框架网站
+categories:
+- Web框架网站
 ---
 基于已开发好了的Web项目网站，发现一些不太合理的地方，就自己动手修修补补了一下下。
+<!--more-->
 
 ## 添加的功能
 
@@ -47,9 +49,9 @@ categories: Web框架网站
 			</table>
 ```
 * 前端根据点击事件并向后端提供分类的ID以删除
-|字段|说明|
-|----|----|
-|delete_id|所删除的分类id|
+字段        说明
+
+delete_id  所删除的分类id
 ```
 //删除分类
    $delete.click(function () {
