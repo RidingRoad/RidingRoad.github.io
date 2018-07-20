@@ -47,9 +47,9 @@ categories: Web框架网站
 			</table>
 ```
 * 前端根据点击事件并向后端提供分类的ID以删除
-｜字段｜说明｜
-｜----｜----｜
-｜delete_id｜所删除的分类id｜
+|字段|说明|
+|----|----|
+|delete_id|所删除的分类id|
 ```
 //删除分类
    $delete.click(function () {
