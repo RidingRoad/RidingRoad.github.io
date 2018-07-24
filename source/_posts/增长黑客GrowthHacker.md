@@ -12,6 +12,7 @@ tags:
 
 # 增长黑客
 ### 为何推荐增长黑客
+<!--more-->
 ###### 前些天，浏览技术交流群里的99+聊天信息。一个全新的职业概念出现其中（全新是对我而言，见识少，见笑了）：【增长黑客Growth Hacker】
 ###### 怀着发现新大陆的鸡冻的心情，我开始了对【Growth Hacker】的搜索求知路。
 ###### 先来简单的看看Andrew Chen 在Growth Hacker is the New VP Marketing中对 【Growth Hacker】的定义：
