@@ -10,7 +10,7 @@ tags:
 在linux中会经常使用到su/su -/sudo这三个命令，总结一下这三个命令的区别。<!--more-->
 ### su
 使用root密码，切换到root用户，但是并没有转到root用户家目录下。
-![](http://paresur4s.bkt.clouddn.com/FsQytdVVK0BiT0qRS7XeQdifOzKh)
+![](http://paresur4s.bkt.clouddn.com/FiL041JlBlIjm3-4OBKBrcx3B-Tt)
 ### su -
 使用root密码，切换到root用户，并转到root用户的家目录下。
 ![](http://paresur4s.bkt.clouddn.com/FsQytdVVK0BiT0qRS7XeQdifOzKh)
