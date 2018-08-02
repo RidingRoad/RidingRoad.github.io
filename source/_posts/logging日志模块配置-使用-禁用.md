@@ -1,5 +1,5 @@
 ---
-title: logging日志模块配置以及使用
+title: logging日志模块配置/使用/禁用
 comments: true
 toc: true
 categories:
@@ -12,6 +12,7 @@ tags:
 ### logging模块的简单配置
 #### 日志等级
 logging提供了5个日志等级，利用不同的日志函数，消息可以按某个等级记入日志
+
 |级别|日志函数|描述|
 |-----|----|----|
 |DEBUG|logging.debug()|最低级别。用于小细节。通常只有在诊断问题时，你才会关心这些消息|
@@ -19,6 +20,7 @@ logging提供了5个日志等级，利用不同的日志函数，消息可以按
 |WARNNING|logging.warning()|用于表示可能的问题，它不会阻止程序的工作，但将来可能会|
 |ERROR|logging.error()|用于记录错误，它导致程序做某事失败|
 |CRITICAL|logging.critical()|最高级别。用于表示致命的错误，它导致或将要导致程序完全停止工作|
+
 ```
 import logging
 # logging初始化
