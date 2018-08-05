@@ -1,5 +1,6 @@
 ---
 title: Linux中su/su -/sudo的区别
+toc: true
 comments: true
 date: 2018-08-01 11:12:35
 categories:
