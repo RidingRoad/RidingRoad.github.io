@@ -58,9 +58,9 @@ migrate = Migrate(app,db) # 数据库迁移绑定
 manager.add_command('mysql',MigrateCommand) # 添加数据库迁移的脚本命令
 ```
 迁移三部曲：
-* pyhton manage.py **migrate_command** **init** # 这里的migrate_command即是上面的‘mysql’
-* python manage.py **migrate_command** **migrate** -m "database_migrate"
-* python manage.py **migrate_command** **upgrade**
+1. pyhton manage.py **migrate_command** **init** # 这里的migrate_command即是上面的‘mysql’
+2. python manage.py **migrate_command** **migrate** -m "database_migrate"
+3. python manage.py **migrate_command** **upgrade**
 #### 查找一个作者的所有文章
 ```
 Author.query.filter(Author.id==1).first().article.all()
@@ -75,12 +75,15 @@ author = Article.query.filter(Article.title=='Python孙行者').first().author
 多对多一般使用一张中间表和两个一对多进而降低难度和更容易理解。下面以用户收藏新闻为例，一个用户可以收藏多条新闻，一条新闻可以被多个用户收藏，那么这个就是一个多对多的关系。
 我们可以通过一张用户表（用户id，姓名，用户收藏的新闻的一个关联属性），一张新闻表（新闻id，新闻标题）以及一张中间表（用户id，新闻id）。
 用户表：
+
 |id|name|
 |-----|----|
 |1|张三|
 |2|李四|
 |3|王五|
+
 新闻表：
+
 |id|title|
 |-----|----|
 |1|六一|
@@ -88,11 +91,13 @@ author = Article.query.filter(Article.title=='Python孙行者').first().author
 |3|十一|
 
 中间表：
+
 |user_id|news_id|
 |-----|----|
 |1|1|
 |1|2|
 |3|1|
+
 比如说，需要查找张三收藏了哪些新闻，那么我们就可以根据张三的用户id到中间表查询user_id为1的所有的news_id的数据，然后再回到新闻表，去根据news_id就可以查到对应的标题了。
 代码：
 ```
@@ -117,11 +122,13 @@ class News(db.Model):
 ### 自关联
 自关联最常见就是评论盖楼和地址的三级联动了，下面一评论盖楼为例：
 一个评论下面有很多追加的评论，这是可以通过记录父评论的id就可以一环扣一环形成完整了评论楼层
+
 |id|content|parent_id|
 |-----|----|----|
 |1|哈哈|NULL|
 |2|6666|1|
 |3|88888|1|
+
 
 ```
 class Comment(db.Model):
