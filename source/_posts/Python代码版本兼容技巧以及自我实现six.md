@@ -67,7 +67,6 @@ query_string = urllib.urlencode(query_string)
 看到这里，我。。。，原来是这样啊：
 
 1. Python2版本six源码直接把PY2写为True
-
 2. Python3版本six源码直接把PY3写为True
 
 所以看到这里，一点都不玄乎
