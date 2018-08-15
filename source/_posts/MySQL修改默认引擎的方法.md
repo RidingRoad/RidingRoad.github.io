@@ -1,6 +1,7 @@
 ---
 title: MySQL修改默认引擎的方法
 comments: true
+toc: true
 date: 2018-08-15 15:06:51
 categories:
 - DataBase
@@ -8,7 +9,7 @@ tags:
 - MySQL 数据库引擎
 ---
 MySQL数据库自5.5版本开始，InnoDB是MySQL数据库的默认引擎（之前是MyISAM）<!--more-->
-[TOC]
+
 ### 查看引擎show engines
 ![](https://pic1.zhimg.com/80/v2-459f4aa9d09d1fade4a2424ab939ef55_hd.jpg)
 
@@ -31,6 +32,7 @@ cd /etc/mysql/
 
 1. 在my.cnf文件的头部添加"[mysqld]"
 2. 添加 "defaulr-storage-engine = 数据库引擎名（INNODB/MYISAM）"
+
 ![](https://pic2.zhimg.com/80/v2-0c7840a01f8528f637016beb71524467_hd.jpg)
 
 #### 重启MySQL服务
@@ -38,4 +40,5 @@ cd /etc/mysql/
 sudo service mysql restart
 ```
 默认引擎以修改完毕
+
 ![](https://pic2.zhimg.com/80/v2-0a65567f86cb6ea008f475d221ec4822_hd.jpg)
