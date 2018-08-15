@@ -19,13 +19,11 @@ tags:
 sudo ifconfig 网卡名 ip信息 netmask 掩码
 ifconfig  #查看是否生效
 ```
-
 ![](https://pic2.zhimg.com/80/v2-c4226f2ee33033bd4cb9e81c70778c26_hd.jpg)
-
 
 ### 修改网关的方法
 原来的网关信息
-![](https://pic1.zhimg.com/80/v2-a49d6130299ffb6d671291861e5cd12a_hd.jpg)
+![原来网卡信息](https://pic1.zhimg.com/80/v2-a49d6130299ffb6d671291861e5cd12a_hd.jpg)
 
 使用route命令修改网卡的网关信息
 ```
