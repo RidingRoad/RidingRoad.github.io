@@ -24,8 +24,7 @@ ifconfig  #查看是否生效
 
 
 ### 修改网关的方法
-原来的网关
-
+原来的网关信息
 ![](https://pic1.zhimg.com/80/v2-a49d6130299ffb6d671291861e5cd12a_hd.jpg)
 
 使用route命令修改网卡的网关信息
