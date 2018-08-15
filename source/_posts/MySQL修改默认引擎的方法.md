@@ -35,7 +35,7 @@ cd /etc/mysql/
 1. 在my.cnf文件的头部添加"[mysqld]"
 2. 添加 "defaulr-storage-engine = 数据库引擎名（INNODB/MYISAM）"
 
-![](https://pic1.zhimg.com/80/v2-459f4aa9d09d1fade4a2424ab939ef55_hd.jpg)
+![](https://pic2.zhimg.com/80/v2-0c7840a01f8528f637016beb71524467_hd.jpg)
 
 #### 重启MySQL服务
 ```
