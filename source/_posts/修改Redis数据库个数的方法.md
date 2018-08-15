@@ -6,7 +6,7 @@ categories:
 - DataBase
 date: 2018-08-15 16:04:57
 tags:
-Redis
+- Redis
 ---
 Redis的数据库个数默认是16个（0-15），既然是默认，那么肯定可以修改<!--more-->
 修改方法：
