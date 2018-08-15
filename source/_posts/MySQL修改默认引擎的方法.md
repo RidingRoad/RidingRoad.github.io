@@ -41,6 +41,6 @@ cd /etc/mysql/
 ```
 sudo service mysql restart
 ```
-默认引擎以修改完毕
+默认引擎修改完毕
 
 ![](https://pic2.zhimg.com/80/v2-0a65567f86cb6ea008f475d221ec4822_hd.jpg)
