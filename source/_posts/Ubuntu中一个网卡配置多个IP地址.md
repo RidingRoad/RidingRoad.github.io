@@ -20,6 +20,21 @@ sudo ifconfig ens39:1 192.168.29.165 netmask 255.255.255.0 broadcast 192.168.29.
 
 ### 永久的配置
 把配置信息写到/etc/network/interfaces 文件里，可以实现永久修改
-
 重启服务或者重启电脑后都不会失效
+```
+
+auto ens39:0
+iface ens39:0 inet static
+address 192.168.29.155
+netmask 255.255.255.0
+gateway 192.168.43.1
+
+
+auto ens39:1
+iface ens39:1 inet static
+address 192.168.29.165
+netmask 255.255.255.0
+gateway 192.168.43.1
+```
+
 ![](https://pic1.zhimg.com/80/v2-3d512ec7f0e4137dcb61a828025287bc_hd.jpg)
