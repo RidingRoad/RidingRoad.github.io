@@ -34,8 +34,17 @@ route -n # 查看网关修改是否生效
 ![](https://pic3.zhimg.com/80/v2-f3903eb8dad876abd3f472a5d3489b87_hd.jpg)
 
 ## 永久行修改ip地址
+### 修改配置文件
 常用网络配置的文件有以下两个：
 1. /etc/network/interfaces 设置ip等信息相关的配置文件
 2. /etc/resolv.conf 设置DNS域名服务器的配置文件
 我们只需要修改第一个文件即可，设置静态IP常用于桥接模式下的虚拟机和主机进行通讯，其他见下图：
 ![](https://pic3.zhimg.com/80/v2-3f33ec56f6516032c45ade4d0027ae52_hd.jpg)
+
+### 重启网络服务
+```
+sudo /etc/init.d/networking restart
+或
+sudo service networking restart
+```
+设置ip地址信息就可以永久修改生效了。
