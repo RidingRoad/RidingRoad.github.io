@@ -1,5 +1,5 @@
 ---
-title: Linux终端命令修改ip地址掩码和网关
+title: Ubuntu临时和永久修改ip地址掩码网关
 comments: true
 toc: true
 categories:
@@ -8,7 +8,8 @@ date: 2018-08-15 16:45:23
 tags:
 - IP掩码网关修改
 ---
-在终端修改指定网卡的ip地址、掩码和网关<!--more-->
+在终端修改ip有临时和永久修改两种方式<!--more-->
+## 临时修改网卡ip地址
 ### 查看网卡
 终端输入 ifcofig 并回车，查看需要修改的网卡名称
 
@@ -31,3 +32,10 @@ sudo route add default gw 网关信息 网卡名
 route -n # 查看网关修改是否生效
 ```
 ![](https://pic3.zhimg.com/80/v2-f3903eb8dad876abd3f472a5d3489b87_hd.jpg)
+
+## 永久行修改ip地址
+常用网络配置的文件有以下两个：
+1. /etc/network/interfaces 设置ip等信息相关的配置文件
+2. /etc/resolv.conf 设置DNS域名服务器的配置文件
+我们只需要修改第一个文件即可，设置静态IP常用于桥接模式下的虚拟机和主机进行通讯，其他见下图：
+![]:(https://pic3.zhimg.com/80/v2-3f33ec56f6516032c45ade4d0027ae52_hd.jpg)
