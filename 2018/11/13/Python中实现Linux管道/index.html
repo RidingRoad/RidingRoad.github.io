@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Python中实现Linux管道.md | The Monkey King</title>
+  <title>Python中实现Linux管道 | The Monkey King</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="需求描述假如需要实现一个随机生成三餐的食谱的需求，提供全部随机生成或自定义同时随机生成两种选项，尽量Pythonic。例如，这样调用即可：1breakfast &amp;gt;&amp;gt; lunch &amp;gt;&amp;gt; dinner 需求分析   的语法实现需要使用__rshift__和__rrshift__。具体使用方式可参考前两期推文。    自定义一个三餐的列表作为随机选取的对象 如果是全部随机生成，则">
+  <meta name="description" content="需求描述假如需要实现一个随机生成三餐的食谱的需求，提供全部随机生成或自定义同时随机生成两种选项，尽量Pythonic。例如，这样调用即可：1breakfast &amp;gt;&amp;gt; lunch &amp;gt;&amp;gt; dinner">
 <meta name="keywords" content="管道">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python中实现Linux管道.md">
-<meta property="og:url" content="http://yoursite.com/2018/11/13/Python中实现Linux管道-md/index.html">
+<meta property="og:title" content="Python中实现Linux管道">
+<meta property="og:url" content="http://yoursite.com/2018/11/13/Python中实现Linux管道/index.html">
 <meta property="og:site_name" content="The Monkey King">
-<meta property="og:description" content="需求描述假如需要实现一个随机生成三餐的食谱的需求，提供全部随机生成或自定义同时随机生成两种选项，尽量Pythonic。例如，这样调用即可：1breakfast &amp;gt;&amp;gt; lunch &amp;gt;&amp;gt; dinner 需求分析   的语法实现需要使用__rshift__和__rrshift__。具体使用方式可参考前两期推文。    自定义一个三餐的列表作为随机选取的对象 如果是全部随机生成，则">
+<meta property="og:description" content="需求描述假如需要实现一个随机生成三餐的食谱的需求，提供全部随机生成或自定义同时随机生成两种选项，尽量Pythonic。例如，这样调用即可：1breakfast &amp;gt;&amp;gt; lunch &amp;gt;&amp;gt; dinner">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-13T13:22:01.437Z">
+<meta property="og:updated_time" content="2018-11-13T13:30:16.485Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python中实现Linux管道.md">
-<meta name="twitter:description" content="需求描述假如需要实现一个随机生成三餐的食谱的需求，提供全部随机生成或自定义同时随机生成两种选项，尽量Pythonic。例如，这样调用即可：1breakfast &amp;gt;&amp;gt; lunch &amp;gt;&amp;gt; dinner 需求分析   的语法实现需要使用__rshift__和__rrshift__。具体使用方式可参考前两期推文。    自定义一个三餐的列表作为随机选取的对象 如果是全部随机生成，则">
+<meta name="twitter:title" content="Python中实现Linux管道">
+<meta name="twitter:description" content="需求描述假如需要实现一个随机生成三餐的食谱的需求，提供全部随机生成或自定义同时随机生成两种选项，尽量Pythonic。例如，这样调用即可：1breakfast &amp;gt;&amp;gt; lunch &amp;gt;&amp;gt; dinner">
   
     <link rel="alternative" href="/atom.xml" title="The Monkey King" type="application/atom+xml">
   
@@ -165,19 +165,19 @@ var _hmt = _hmt || [];
             <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
-<article id="post-Python中实现Linux管道-md" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-Python中实现Linux管道" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Python中实现Linux管道.md
+      Python中实现Linux管道
     </h1>
   
 
         
-        <a href="/2018/11/13/Python中实现Linux管道-md/" class="archive-article-date">
+        <a href="/2018/11/13/Python中实现Linux管道/" class="archive-article-date">
   	<time datetime="2018-11-13T13:14:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-13 21:14:11</time>
 </a>
         
@@ -191,13 +191,9 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="需求描述"><a href="#需求描述" class="headerlink" title="需求描述"></a>需求描述</h3><p>假如需要实现一个随机生成三餐的食谱的需求，提供全部随机生成或自定义同时随机生成两种选项，尽量Pythonic。例如，这样调用即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">breakfast &gt;&gt; lunch &gt;&gt; dinner</span><br></pre></td></tr></table></figure></p>
-<h3 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h3><ol>
-<li><blockquote>
-<blockquote>
-<p>的语法实现需要使用__rshift__和__rrshift__。<br>具体使用方式可参考前两期推文。</p>
-</blockquote>
-</blockquote>
-</li>
+<a id="more"></a>
+<h3 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h3><p>1.&gt;> 的语法实现需要使用__rshift__和__rrshift__。</p>
+<ol start="2">
 <li>自定义一个三餐的列表作为随机选取的对象</li>
 <li>如果是全部随机生成，则无需传递参数，进行4和5的步骤</li>
 <li>breakfast的结果传递给lunch，在breakfast的结果基础插入lunch</li>
@@ -324,7 +320,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/11/13/Python中实现Linux管道-md/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/11/13/Python中实现Linux管道/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -370,7 +366,7 @@ var _hmt = _hmt || [];
   
 
   
-  <div id="SOHUCS" sid="Python中实现Linux管道-md" ></div> 
+  <div id="SOHUCS" sid="Python中实现Linux管道" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
