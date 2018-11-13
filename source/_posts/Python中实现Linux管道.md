@@ -1,5 +1,5 @@
 ---
-title: Python中实现Linux管道.md
+title: Python中实现Linux管道
 comments: true
 date: 2018-11-13 21:14:11
 categories:
@@ -12,9 +12,9 @@ tags:
 ```
 breakfast >> lunch >> dinner
 ```
+<!--more-->
 ### 需求分析
-1. >> 的语法实现需要使用\__rshift__和\__rrshift__。
-具体使用方式可参考前两期推文。
+1.>\> 的语法实现需要使用\__rshift__和\__rrshift__。
 2. 自定义一个三餐的列表作为随机选取的对象
 3. 如果是全部随机生成，则无需传递参数，进行4和5的步骤
 4. breakfast的结果传递给lunch，在breakfast的结果基础插入lunch
