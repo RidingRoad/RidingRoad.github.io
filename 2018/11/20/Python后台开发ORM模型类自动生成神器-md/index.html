@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Python自动化Markdown无序列表 | The Monkey King</title>
+  <title>Python后台开发ORM模型类自动生成神器 | The Monkey King</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Python自动化Markdown无序列表">
-<meta name="keywords" content="无序列表,Markdown">
+  <meta name="description" content="今天介绍一个后台开发神器，很适合当我们数据库中已存在了这些表，然后你想得到它们的model类使用ORM技术进行CRUD操作(或者我根本就不知道怎么写modle类，但我会写create这个表的sql的时候)，手写100张表的model类？这是。。。。。。。。。是不可能的，这辈子都不可能的。因为我们有sqlacodegen神器，一行命令获取数据库所有表的模型类。">
+<meta name="keywords" content="自动生成Model模型类">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python自动化Markdown无序列表">
-<meta property="og:url" content="http://yoursite.com/2018/07/24/Python自动化Markdown无序列表/index.html">
+<meta property="og:title" content="Python后台开发ORM模型类自动生成神器">
+<meta property="og:url" content="http://yoursite.com/2018/11/20/Python后台开发ORM模型类自动生成神器-md/index.html">
 <meta property="og:site_name" content="The Monkey King">
-<meta property="og:description" content="Python自动化Markdown无序列表">
+<meta property="og:description" content="今天介绍一个后台开发神器，很适合当我们数据库中已存在了这些表，然后你想得到它们的model类使用ORM技术进行CRUD操作(或者我根本就不知道怎么写modle类，但我会写create这个表的sql的时候)，手写100张表的model类？这是。。。。。。。。。是不可能的，这辈子都不可能的。因为我们有sqlacodegen神器，一行命令获取数据库所有表的模型类。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-24T10:36:21.759Z">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/1ndlcPm7Ab4p0zUxJ9N2icqVOPm4KaibT1XzumWCK636mibdwmUZFMEMNNiaYnxYlZCibdeKdiaCRIpCmicEiadNticPgtQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:updated_time" content="2018-11-20T12:57:48.346Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python自动化Markdown无序列表">
-<meta name="twitter:description" content="Python自动化Markdown无序列表">
+<meta name="twitter:title" content="Python后台开发ORM模型类自动生成神器">
+<meta name="twitter:description" content="今天介绍一个后台开发神器，很适合当我们数据库中已存在了这些表，然后你想得到它们的model类使用ORM技术进行CRUD操作(或者我根本就不知道怎么写modle类，但我会写create这个表的sql的时候)，手写100张表的model类？这是。。。。。。。。。是不可能的，这辈子都不可能的。因为我们有sqlacodegen神器，一行命令获取数据库所有表的模型类。">
+<meta name="twitter:image" content="https://mmbiz.qpic.cn/mmbiz_png/1ndlcPm7Ab4p0zUxJ9N2icqVOPm4KaibT1XzumWCK636mibdwmUZFMEMNNiaYnxYlZCibdeKdiaCRIpCmicEiadNticPgtQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
   
     <link rel="alternative" href="/atom.xml" title="The Monkey King" type="application/atom+xml">
   
@@ -165,20 +167,20 @@ var _hmt = _hmt || [];
             <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
-<article id="post-Python自动化Markdown无序列表" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-Python后台开发ORM模型类自动生成神器-md" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Python自动化Markdown无序列表
+      Python后台开发ORM模型类自动生成神器
     </h1>
   
 
         
-        <a href="/2018/07/24/Python自动化Markdown无序列表/" class="archive-article-date">
-  	<time datetime="2018-07-24T00:44:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-24 08:44:27</time>
+        <a href="/2018/11/20/Python后台开发ORM模型类自动生成神器-md/" class="archive-article-date">
+  	<time datetime="2018-11-20T12:54:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-20 20:54:59</time>
 </a>
         
         
@@ -190,44 +192,29 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Python自动化Markdown无序列表"><a href="#Python自动化Markdown无序列表" class="headerlink" title="Python自动化Markdown无序列表"></a>Python自动化Markdown无序列表</h2><a id="more"></a>
-<h4 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h4><p>假如我们在编辑Markdown格式的文档，需要显示一个很大的列表，但目前只有每行的文本，那么需要在每一行的前面添加“* ” ，这样在Markdown的文档就可以形成无序列表了。</p>
-<p>Markdown语法<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">* 哈哈</span><br><span class="line">* 哈哈</span><br></pre></td></tr></table></figure></p>
-<p>效果：</p>
-<ul>
-<li>哈哈</li>
-<li>哈哈<h4 id="例如有朱自清的246行《毁灭》长诗需要以无序列表的形式显示"><a href="#例如有朱自清的246行《毁灭》长诗需要以无序列表的形式显示" class="headerlink" title="例如有朱自清的246行《毁灭》长诗需要以无序列表的形式显示"></a>例如有朱自清的246行《毁灭》长诗需要以无序列表的形式显示</h4>如果要手工在每一行前添加“* ”，那么多么的累啊，我们要自动化<h4 id="那么就演示这个小程序的使用过程吧，看视频"><a href="#那么就演示这个小程序的使用过程吧，看视频" class="headerlink" title="那么就演示这个小程序的使用过程吧，看视频"></a>那么就演示这个小程序的使用过程吧，看视频</h4><h4 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h4></li>
-</ul>
-<ol>
-<li>选中246行长诗，右击复制</li>
-<li>运行本程序</li>
-<li>在你需要插入的地方右击粘贴，Bingo</li>
-</ol>
-<h4 id="我们看看Python的pyperclip模块是怎样实现的"><a href="#我们看看Python的pyperclip模块是怎样实现的" class="headerlink" title="我们看看Python的pyperclip模块是怎样实现的"></a>我们看看Python的pyperclip模块是怎样实现的</h4><p>pyperclip模块不是内置模块需要自己安装<br><strong>pip3 install pyperclip</strong></p>
-<ol>
-<li>pyperclip.paste()<br>从电脑剪贴板中获取复制的内容</li>
-<li>pyperclip.copy(text)<br>把text内容放到电脑的剪贴板，那么粘贴时的数据就变成text的内容了<h4 id="那么，我们来实现一下自动化在每行前面添加“-”"><a href="#那么，我们来实现一下自动化在每行前面添加“-”" class="headerlink" title="那么，我们来实现一下自动化在每行前面添加“* ”"></a>那么，我们来实现一下自动化在每行前面添加“* ”</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#！/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line">__author__ = <span class="string">"RidingRoad"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> pyperclip</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""运行前把需要形成无序列表的数据选中右击复制</span></span><br><span class="line"><span class="string">       运行后右击粘贴即可生成Mark down格式无序列表</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="comment"># 获取剪贴板的数据</span></span><br><span class="line">    text = pyperclip.paste()</span><br><span class="line">    <span class="comment"># 对长字符串根据"\n"进行分割到一个列表</span></span><br><span class="line">    text_split = text.split(<span class="string">'\n'</span>)</span><br><span class="line">    <span class="comment"># 在每一行前添加"* "(*号和一个空格)</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(text_split)):</span><br><span class="line">        text_split[i] = <span class="string">"* "</span> + text_split[i]</span><br><span class="line">    <span class="comment"># 合并</span></span><br><span class="line">    text = <span class="string">"\n"</span>.join(text_split)</span><br><span class="line">    <span class="comment"># 把处理后的数据放回剪贴板</span></span><br><span class="line">    pyperclip.copy(text)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h4 id="运行后剪贴板内容："><a href="#运行后剪贴板内容：" class="headerlink" title="运行后剪贴板内容："></a>运行后剪贴板内容：</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">* 踯躅在半路里，</span><br><span class="line">* 垂头丧气的，</span><br><span class="line">* 是我，是我！</span><br><span class="line">* 五光吧，</span><br><span class="line">* 十色吧，</span><br><span class="line">* 罗列在咫尺之间：</span><br><span class="line">* 这好看的呀！</span><br><span class="line">* 那好听的呀！</span><br><span class="line">* 闻着的是浓浓的香，</span><br><span class="line">* 尝着的是腻腻的味；</span><br><span class="line">* 况手所触的，</span><br><span class="line">* 身所依的，</span><br><span class="line">* 都是滑泽的，</span><br><span class="line">* 都是松软的！</span><br><span class="line">* 靡靡然！</span><br><span class="line">* 怎奈何这靡靡然？</span><br><span class="line">...............</span><br></pre></td></tr></table></figure>
-<h4 id="运行后Markdown效果"><a href="#运行后Markdown效果" class="headerlink" title="运行后Markdown效果"></a>运行后Markdown效果</h4><ul>
-<li>踯躅在半路里，</li>
-<li>垂头丧气的，</li>
-<li>是我，是我！</li>
-<li>五光吧，</li>
-<li>十色吧，</li>
-<li>罗列在咫尺之间：</li>
-<li>这好看的呀！</li>
-<li>那好听的呀！</li>
-<li>闻着的是浓浓的香，</li>
-<li>尝着的是腻腻的味；</li>
-<li>况手所触的，</li>
-<li>身所依的，</li>
-<li>都是滑泽的，</li>
-<li>都是松软的！</li>
-<li>靡靡然！</li>
-<li>怎奈何这靡靡然？——<br>。。。。。。。。。<h4 id="好了，到这里，已经自动化解决了"><a href="#好了，到这里，已经自动化解决了" class="headerlink" title="好了，到这里，已经自动化解决了"></a>好了，到这里，已经自动化解决了</h4>我的个性签名:Focusing on the Python and firmly convincing that nothing can replace hard work.<br>需要完整的代码关注我的公众号Python孙行者,聊天界面回复”自动化无序列表”,即可获取.</li>
-</ul>
+        <p>今天介绍一个后台开发神器，很适合当我们数据库中已存在了这些表，然后你想得到它们的model类使用ORM技术进行CRUD操作(或者我根本就不知道怎么写modle类，但我会写create这个表的sql的时候)，手写100张表的model类？这是。。。。。。。。。<br>是不可能的，这辈子都不可能的。<br>因为我们有<strong>sqlacodegen神器</strong>，<br><strong>一行命令获取数据库所有表的模型类</strong>。<br><a id="more"></a></p>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><p>1、后台开发中，需要经常对数据库进行CRUD操作；<br>2、这个过程中，我们就经常借助ORM技术进行便利的CURD，比如成熟的SQLAlchemy；<br>3、<strong>但是，进行ORM操作前需要提供和table对应的模型类；</strong><br>4、并且，很多历史table已经存在于数据库中；<br>5、如果有<strong>几百张table</strong>呢？还自己一个个去写吗？<br>6、我相信你心中会有个念头。。。</p>
+<h3 id="福音"><a href="#福音" class="headerlink" title="福音"></a>福音</h3><p>还是那句话，Python大法好。<br>这里就提供了一个根据已有数据库(表)结构生成对应SQLAlchemy模型类的神器：<br><strong>sqlacodegen</strong></p>
+<blockquote>
+<p>This is a tool that reads the structure of an existing database and generates the appropriate SQLAlchemy model code, using the declarative style if possible.</p>
+</blockquote>
+<p>安装方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install sqlacodegen</span><br></pre></td></tr></table></figure></p>
+<h3 id="快快使用"><a href="#快快使用" class="headerlink" title="快快使用"></a>快快使用</h3><p>使用方法也很简单，只需要在终端(命令行窗口)运行一行命令即可：<br>常用数据库的使用方法：<br>将会获取到整个数据库的model<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sqlacodegen postgresql:///some_local_db</span><br><span class="line">sqlacodegen mysql+oursql://user:password@localhost/dbname</span><br><span class="line">sqlacodegen sqlite:///database.db</span><br></pre></td></tr></table></figure></p>
+<p>查看具体参数可以输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlacodegen --help</span><br></pre></td></tr></table></figure></p>
+<p>参数含义：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">optional arguments:</span><br><span class="line">  -h, --help         show this help message and exit</span><br><span class="line">  --version          print the version number and exit</span><br><span class="line">  --schema SCHEMA    load tables from an alternate schema</span><br><span class="line">  --tables TABLES    tables to process (comma-separated, default: all)</span><br><span class="line">  --noviews          ignore views</span><br><span class="line">  --noindexes        ignore indexes</span><br><span class="line">  --noconstraints    ignore constraints</span><br><span class="line">  --nojoined         don&apos;t autodetect joined table inheritance</span><br><span class="line">  --noinflect        don&apos;t try to convert tables names to singular form</span><br><span class="line">  --noclasses        don&apos;t generate classes, only tables</span><br><span class="line">  --outfile OUTFILE  file to write output to (default: stdout)</span><br></pre></td></tr></table></figure></p>
+<p>目前我在postgresql的默认的postgres数据库中有个这样的表：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">create table friends</span><br><span class="line">(</span><br><span class="line">  id   varchar(3) primary key ,</span><br><span class="line">  address  varchar(50) not null ,</span><br><span class="line">  name varchar(10) not null</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">create unique index name_address</span><br><span class="line">on friends (name, address);</span><br></pre></td></tr></table></figure></p>
+<p>为了使用ORM进行操作，我需要获取它的modle类<br><strong>但唯一索引的model类怎么写呢？</strong><br>我们<strong>借助sqlacodegen来自动生成</strong>就好了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlacodegen postgresql://ridingroad:ridingroad@127.0.0.1:5432/postgres --outfile=models.py  --tables friends</span><br></pre></td></tr></table></figure></p>
+<h3 id="模型类效果"><a href="#模型类效果" class="headerlink" title="模型类效果"></a>模型类效果</h3><p>查看输出到models.py的内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># coding: utf-8</span><br><span class="line">from sqlalchemy import Column, Index, String</span><br><span class="line">from sqlalchemy.ext.declarative import declarative_base</span><br><span class="line"></span><br><span class="line">Base = declarative_base()</span><br><span class="line">metadata = Base.metadata</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Friend(Base):</span><br><span class="line">    __tablename__ = &apos;friends&apos;</span><br><span class="line">    __table_args__ = (</span><br><span class="line">        Index(&apos;name_address&apos;, &apos;name&apos;, &apos;address&apos;, unique=True),</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    id = Column(String(3), primary_key=True)</span><br><span class="line">    address = Column(String(50), nullable=False)</span><br><span class="line">    name = Column(String(10), nullable=False)</span><br></pre></td></tr></table></figure></p>
+<p>如果你有很多表，就直接指定数据库呗(这是会生成整个数据库的ORM模型类哦),不具体到每张表就好了，<br>后面就可以愉快的CRUD了，耶</p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>Why does it sometimes generate classes and sometimes Tables?</p>
+<blockquote>
+<p>Unless the –noclasses option is used, sqlacodegen tries to generate declarative model classes from each table. There are two circumstances in which a Table is generated instead:<br>1、the table has no primary key constraint (which is required by SQLAlchemy for every model class)<br>2、the table is an association table between two other tables</p>
+</blockquote>
+<p>当你的表的字段缺少primary key或这张表是有两个外键约束的时候，会生成table而不是模型类了。比如，我那张表是这样的结构：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">create table friends</span><br><span class="line">(</span><br><span class="line">  id   varchar(3) ,</span><br><span class="line">  address  varchar(50) not null ,</span><br><span class="line">  name varchar(10) not null</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">create unique index name_address</span><br><span class="line">  on friends (name, address);</span><br></pre></td></tr></table></figure></p>
+<p>再执行同一个命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlacodegen postgresql://ridingroad:ridingroad@127.0.0.1:5432/postgres --outfile=models.py  --tables friends</span><br></pre></td></tr></table></figure></p>
+<p>获取到的是Table：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># coding: utf-8</span><br><span class="line">from sqlalchemy import Column, Index, MetaData, String, Table</span><br><span class="line"></span><br><span class="line">metadata = MetaData()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">t_friends = Table(</span><br><span class="line">    &apos;friends&apos;, metadata,</span><br><span class="line">    Column(&apos;id&apos;, String(3)),</span><br><span class="line">    Column(&apos;address&apos;, String(50), nullable=False),</span><br><span class="line">    Column(&apos;name&apos;, String(10), nullable=False),</span><br><span class="line">    Index(&apos;name_address&apos;, &apos;name&apos;, &apos;address&apos;, unique=True)</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<p>其实和模型类差不多嘛，但是还是尽量带上primary key吧，免得手动修改成模型类</p>
+<h3 id="Python全面学习资料"><a href="#Python全面学习资料" class="headerlink" title="Python全面学习资料"></a>Python全面学习资料</h3><p>公众号”Python孙行者”后台回复”电子书“即可。如果你有什么好东西好神器，欢迎后台私信，以后总结随文分享，耶<br><img src="https://mmbiz.qpic.cn/mmbiz_png/1ndlcPm7Ab4p0zUxJ9N2icqVOPm4KaibT1XzumWCK636mibdwmUZFMEMNNiaYnxYlZCibdeKdiaCRIpCmicEiadNticPgtQ/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt=""></p>
 
       
 
@@ -272,32 +259,13 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">无序列表</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Markdown</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">自动生成Model模型类</a>
         		</li>
       		
 		</ul>
 	</div>
 
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Python//" class="article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Python/Fun//" class="article-tag-list-link color4">Fun</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
 
@@ -347,7 +315,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/24/Python自动化Markdown无序列表/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/11/20/Python后台开发ORM模型类自动生成神器-md/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -361,18 +329,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2018/07/24/猜数字小程序/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          猜数字小程序
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/07/24/Ctrl-C-Ctrl-V组合拳提取电话和邮箱/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Ctrl+C,Ctrl+V组合拳提取电话和邮箱</div>
+    <a href="/2018/11/13/Python实现UTC时间戳和格式化字符串互转/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Python实现UTC时间戳和格式化字符串互换</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -392,19 +351,6 @@ var _hmt = _hmt || [];
         </div>
         
         
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Python自动化Markdown无序列表"><span class="toc-number">1.</span> <span class="toc-text">Python自动化Markdown无序列表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#应用场景"><span class="toc-number">1.0.1.</span> <span class="toc-text">应用场景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#例如有朱自清的246行《毁灭》长诗需要以无序列表的形式显示"><span class="toc-number">1.0.2.</span> <span class="toc-text">例如有朱自清的246行《毁灭》长诗需要以无序列表的形式显示</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#那么就演示这个小程序的使用过程吧，看视频"><span class="toc-number">1.0.3.</span> <span class="toc-text">那么就演示这个小程序的使用过程吧，看视频</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#操作步骤"><span class="toc-number">1.0.4.</span> <span class="toc-text">操作步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#我们看看Python的pyperclip模块是怎样实现的"><span class="toc-number">1.0.5.</span> <span class="toc-text">我们看看Python的pyperclip模块是怎样实现的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#那么，我们来实现一下自动化在每行前面添加“-”"><span class="toc-number">1.0.6.</span> <span class="toc-text">那么，我们来实现一下自动化在每行前面添加“* ”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#运行后剪贴板内容："><span class="toc-number">1.0.7.</span> <span class="toc-text">运行后剪贴板内容：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#运行后Markdown效果"><span class="toc-number">1.0.8.</span> <span class="toc-text">运行后Markdown效果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#好了，到这里，已经自动化解决了"><span class="toc-number">1.0.9.</span> <span class="toc-text">好了，到这里，已经自动化解决了</span></a></li></ol></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
     </div>
 </aside>
 
@@ -415,7 +361,7 @@ var _hmt = _hmt || [];
   
 
   
-  <div id="SOHUCS" sid="Python自动化Markdown无序列表" ></div> 
+  <div id="SOHUCS" sid="Python后台开发ORM模型类自动生成神器-md" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
