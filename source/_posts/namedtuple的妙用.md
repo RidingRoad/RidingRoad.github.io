@@ -2,6 +2,10 @@
 title: namedtuple的妙用
 comments: true
 date: 2018-11-27 19:17:22
+tags:
+- namedtuple
+categories:
+- Python
 ---
 
 上一次介绍了后台开发神器，**sqlacodegen神器**，**一行命令获取数据库所有表的模型类**。

@@ -5,8 +5,7 @@ menu:
   Python: /categories/Python/
   Elasticsearch: /categories/Elasticsearch
   Golang: /categories/Golang
-  Databases: /categories/databases/
-  Postgresql: /categories/databases/postgresql
+  Postgresql: /categories/postgresql
 # SubNav
 subnav:
   github: "https://github.com/RidingRoad"
