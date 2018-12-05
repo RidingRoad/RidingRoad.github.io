@@ -17,7 +17,7 @@
 <meta property="og:description" content="今天介绍一个后台开发神器，很适合当我们数据库中已存在了这些表，然后你想得到它们的model类使用ORM技术进行CRUD操作(或者我根本就不知道怎么写modle类，但我会写create这个表的sql的时候)，手写100张表的model类？这是。。。。。。。。。是不可能的，这辈子都不可能的。因为我们有sqlacodegen神器，一行命令获取数据库所有表的模型类。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/1ndlcPm7Ab4p0zUxJ9N2icqVOPm4KaibT1XzumWCK636mibdwmUZFMEMNNiaYnxYlZCibdeKdiaCRIpCmicEiadNticPgtQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
-<meta property="og:updated_time" content="2018-11-20T12:57:48.346Z">
+<meta property="og:updated_time" content="2018-12-05T09:04:10.407Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python后台开发ORM模型类自动生成神器">
 <meta name="twitter:description" content="今天介绍一个后台开发神器，很适合当我们数据库中已存在了这些表，然后你想得到它们的model类使用ORM技术进行CRUD操作(或者我根本就不知道怎么写modle类，但我会写create这个表的sql的时候)，手写100张表的model类？这是。。。。。。。。。是不可能的，这辈子都不可能的。因为我们有sqlacodegen神器，一行命令获取数据库所有表的模型类。">
@@ -77,6 +77,14 @@ var _hmt = _hmt || [];
 	        
 				<li><a href="/categories/Python/">Python</a></li>
 	        
+				<li><a href="/categories/Elasticsearch">Elasticsearch</a></li>
+	        
+				<li><a href="/categories/Golang">Golang</a></li>
+	        
+				<li><a href="/categories/databases/">Databases</a></li>
+	        
+				<li><a href="/categories/databases/postgresql">Postgresql</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -129,6 +137,14 @@ var _hmt = _hmt || [];
 			
 				
 			
+				
+			
+				
+			
+				
+			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -144,12 +160,20 @@ var _hmt = _hmt || [];
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">HomePage</a></li>
+					<li style="width: 16.666666666666668%"><a href="/">HomePage</a></li>
 		        
-					<li style="width: 50%"><a href="/categories/Python/">Python</a></li>
+					<li style="width: 16.666666666666668%"><a href="/categories/Python/">Python</a></li>
+		        
+					<li style="width: 16.666666666666668%"><a href="/categories/Elasticsearch">Elasticsearch</a></li>
+		        
+					<li style="width: 16.666666666666668%"><a href="/categories/Golang">Golang</a></li>
+		        
+					<li style="width: 16.666666666666668%"><a href="/categories/databases/">Databases</a></li>
+		        
+					<li style="width: 16.666666666666668%"><a href="/categories/databases/postgresql">Postgresql</a></li>
 		        
 				</ul>
 			</nav>
@@ -329,11 +353,11 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2018/12/01/都是Python3就万事大吉/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/11/27/namedtuple的妙用/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          都是Python3就万事大吉?
+          namedtuple的妙用
         
       </div>
     </a>
@@ -359,6 +383,19 @@ var _hmt = _hmt || [];
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#应用场景"><span class="toc-number">1.</span> <span class="toc-text">应用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#福音"><span class="toc-number">2.</span> <span class="toc-text">福音</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#快快使用"><span class="toc-number">3.</span> <span class="toc-text">快快使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型类效果"><span class="toc-number">4.</span> <span class="toc-text">模型类效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意事项"><span class="toc-number">5.</span> <span class="toc-text">注意事项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Python全面学习资料"><span class="toc-number">6.</span> <span class="toc-text">Python全面学习资料</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -531,15 +568,15 @@ s.parentNode.insertBefore(hm, s);
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">管道</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">浅拷贝</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">变量定义</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">管道</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -551,23 +588,11 @@ s.parentNode.insertBefore(hm, s);
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">持久化</a>
+                <a href="javascript:void(0)" class="js-tag color2">Scrapy 数据分析</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">时间戳</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">IP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">logging 日志</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Scrapy 数据分析</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -579,7 +604,19 @@ s.parentNode.insertBefore(hm, s);
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">持久化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">IP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">WSGI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">logging 日志</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -595,11 +632,11 @@ s.parentNode.insertBefore(hm, s);
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">GrowthHacker</a>
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+                <a href="javascript:void(0)" class="js-tag color3">GrowthHacker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -607,11 +644,11 @@ s.parentNode.insertBefore(hm, s);
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">\*expression</a>
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color3">\*expression</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -690,7 +727,7 @@ s.parentNode.insertBefore(hm, s);
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">Riding on the Road&lt;br&gt;&lt;br&gt;Do what I like&lt;br&gt;Live what I want</div>
   	  	
     	</section>
     

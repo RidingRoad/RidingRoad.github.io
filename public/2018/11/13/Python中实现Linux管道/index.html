@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="The Monkey King">
 <meta property="og:description" content="需求描述假如需要实现一个随机生成三餐的食谱的需求，提供全部随机生成或自定义同时随机生成两种选项，尽量Pythonic。例如，这样调用即可：1breakfast &amp;gt;&amp;gt; lunch &amp;gt;&amp;gt; dinner">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-13T13:30:16.485Z">
+<meta property="og:updated_time" content="2018-12-05T09:04:10.406Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python中实现Linux管道">
 <meta name="twitter:description" content="需求描述假如需要实现一个随机生成三餐的食谱的需求，提供全部随机生成或自定义同时随机生成两种选项，尽量Pythonic。例如，这样调用即可：1breakfast &amp;gt;&amp;gt; lunch &amp;gt;&amp;gt; dinner">
@@ -75,6 +75,14 @@ var _hmt = _hmt || [];
 	        
 				<li><a href="/categories/Python/">Python</a></li>
 	        
+				<li><a href="/categories/Elasticsearch">Elasticsearch</a></li>
+	        
+				<li><a href="/categories/Golang">Golang</a></li>
+	        
+				<li><a href="/categories/databases/">Databases</a></li>
+	        
+				<li><a href="/categories/databases/postgresql">Postgresql</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -127,6 +135,14 @@ var _hmt = _hmt || [];
 			
 				
 			
+				
+			
+				
+			
+				
+			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -142,12 +158,20 @@ var _hmt = _hmt || [];
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">HomePage</a></li>
+					<li style="width: 16.666666666666668%"><a href="/">HomePage</a></li>
 		        
-					<li style="width: 50%"><a href="/categories/Python/">Python</a></li>
+					<li style="width: 16.666666666666668%"><a href="/categories/Python/">Python</a></li>
+		        
+					<li style="width: 16.666666666666668%"><a href="/categories/Elasticsearch">Elasticsearch</a></li>
+		        
+					<li style="width: 16.666666666666668%"><a href="/categories/Golang">Golang</a></li>
+		        
+					<li style="width: 16.666666666666668%"><a href="/categories/databases/">Databases</a></li>
+		        
+					<li style="width: 16.666666666666668%"><a href="/categories/databases/postgresql">Postgresql</a></li>
 		        
 				</ul>
 			</nav>
@@ -365,6 +389,19 @@ var _hmt = _hmt || [];
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#需求描述"><span class="toc-number">1.</span> <span class="toc-text">需求描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#需求分析"><span class="toc-number">2.</span> <span class="toc-text">需求分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现-gt-gt-管道语法"><span class="toc-number">3.</span> <span class="toc-text">实现&gt;&gt;管道语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#菜单候取对象"><span class="toc-number">4.</span> <span class="toc-text">菜单候取对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#菜单随机实现"><span class="toc-number">5.</span> <span class="toc-text">菜单随机实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#整体控制及管道实现"><span class="toc-number">6.</span> <span class="toc-text">整体控制及管道实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#随机生成效果"><span class="toc-number">7.</span> <span class="toc-text">随机生成效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义菜单生成效果"><span class="toc-number">8.</span> <span class="toc-text">自定义菜单生成效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#携带参数的实现"><span class="toc-number">9.</span> <span class="toc-text">携带参数的实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他"><span class="toc-number">10.</span> <span class="toc-text">其他</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -536,15 +573,15 @@ s.parentNode.insertBefore(hm, s);
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">管道</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">浅拷贝</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">变量定义</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">管道</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -556,23 +593,11 @@ s.parentNode.insertBefore(hm, s);
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">持久化</a>
+                <a href="javascript:void(0)" class="js-tag color2">Scrapy 数据分析</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">时间戳</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">IP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">logging 日志</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Scrapy 数据分析</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -584,7 +609,19 @@ s.parentNode.insertBefore(hm, s);
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">持久化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">IP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">WSGI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">logging 日志</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -600,11 +637,11 @@ s.parentNode.insertBefore(hm, s);
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">GrowthHacker</a>
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+                <a href="javascript:void(0)" class="js-tag color3">GrowthHacker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -612,11 +649,11 @@ s.parentNode.insertBefore(hm, s);
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">\*expression</a>
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color3">\*expression</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -695,7 +732,7 @@ s.parentNode.insertBefore(hm, s);
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">Riding on the Road&lt;br&gt;&lt;br&gt;Do what I like&lt;br&gt;Live what I want</div>
   	  	
     	</section>
     
