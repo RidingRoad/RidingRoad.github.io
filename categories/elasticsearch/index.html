@@ -6,24 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>MySQL修改默认引擎的方法 | The Monkey King</title>
+  <title>Category: elasticsearch | The Monkey King</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="MySQL数据库自5.5版本开始，InnoDB是MySQL数据库的默认引擎（之前是MyISAM）">
-<meta name="keywords" content="MySQL 数据库引擎">
-<meta property="og:type" content="article">
-<meta property="og:title" content="MySQL修改默认引擎的方法">
-<meta property="og:url" content="http://yoursite.com/2018/08/15/MySQL修改默认引擎的方法/index.html">
+  <meta name="description" content="点点滴滴">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Monkey King">
+<meta property="og:url" content="http://yoursite.com/categories/elasticsearch/index.html">
 <meta property="og:site_name" content="The Monkey King">
-<meta property="og:description" content="MySQL数据库自5.5版本开始，InnoDB是MySQL数据库的默认引擎（之前是MyISAM）">
+<meta property="og:description" content="点点滴滴">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://pic1.zhimg.com/80/v2-459f4aa9d09d1fade4a2424ab939ef55_hd.jpg">
-<meta property="og:image" content="https://pic2.zhimg.com/80/v2-0c7840a01f8528f637016beb71524467_hd.jpg">
-<meta property="og:image" content="https://pic2.zhimg.com/80/v2-0a65567f86cb6ea008f475d221ec4822_hd.jpg">
-<meta property="og:updated_time" content="2018-12-05T09:04:10.406Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySQL修改默认引擎的方法">
-<meta name="twitter:description" content="MySQL数据库自5.5版本开始，InnoDB是MySQL数据库的默认引擎（之前是MyISAM）">
-<meta name="twitter:image" content="https://pic1.zhimg.com/80/v2-459f4aa9d09d1fade4a2424ab939ef55_hd.jpg">
+<meta name="twitter:title" content="The Monkey King">
+<meta name="twitter:description" content="点点滴滴">
   
     <link rel="alternative" href="/atom.xml" title="The Monkey King" type="application/atom+xml">
   
@@ -184,245 +179,60 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-<article id="post-MySQL修改默认引擎的方法" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      MySQL修改默认引擎的方法
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/12/05/Elastidsearch待续/" class="archive-article-date">
+  	<time datetime="2018-12-05T12:46:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-05 20:46:53</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/12/05/Elastidsearch待续/">Elastidsearch待续</a>
     </h1>
   
 
-        
-        <a href="/2018/08/15/MySQL修改默认引擎的方法/" class="archive-article-date">
-  	<time datetime="2018-08-15T07:06:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-15 15:06:51</time>
-</a>
-        
-        
-                    		<span class="archive-article-date">
-                    			阅读量 <span id="busuanzi_value_page_pv"></span>
-                    		</span>
-       
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>MySQL数据库自5.5版本开始，InnoDB是MySQL数据库的默认引擎（之前是MyISAM）<a id="more"></a></p>
-<h3 id="查看引擎show-engines"><a href="#查看引擎show-engines" class="headerlink" title="查看引擎show engines"></a>查看引擎show engines</h3><p><img src="https://pic1.zhimg.com/80/v2-459f4aa9d09d1fade4a2424ab939ef55_hd.jpg" alt=""></p>
-<h3 id="主要区别"><a href="#主要区别" class="headerlink" title="主要区别"></a>主要区别</h3><ol>
-<li>InnoDB支持外键和事务，MyISAM不支持外键和事务<br>对于InnoDB每一条SQL语句都默认封装成事务，自带提交。</li>
-<li>InnoDB是聚焦索引，MyISAM是非聚焦索引。<br>InnoDB是聚集索引，数据文件是和索引绑在一起的，必须要有主键，通过主键索引效率很高。但是辅助索引需要两次查询，先查询到主键，然后再通过主键查询到数据。因此，主键不应该过大，因为主键太大，其他索引也都会很大。而MyISAM是非聚集索引，数据文件是分离的，索引保存的是数据文件的指针。主键索引和辅助索引是独立的。</li>
-<li>InnoDB不保存表的具体行数，执行select count(*) from table时需要全表扫描。而MyISAM用一个变量保存了整个表的行数，执行上述语句时只需要读出该变量即可，速度很快；</li>
-<li>InnoDB不支持全文索引，而MyISAM支持全文索引，查询效率上MyISAM要高</li>
-</ol>
-<h3 id="修改默认引擎方法"><a href="#修改默认引擎方法" class="headerlink" title="修改默认引擎方法"></a>修改默认引擎方法</h3><p>那么就需要根据具体的情况进行选择使用哪个引擎，那么就看看如何修改默认引擎：</p>
-<h4 id="切换路径："><a href="#切换路径：" class="headerlink" title="切换路径："></a>切换路径：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/mysql/</span><br></pre></td></tr></table></figure>
-<h4 id="修改my-cnf文件："><a href="#修改my-cnf文件：" class="headerlink" title="修改my.cnf文件："></a>修改my.cnf文件：</h4><ol>
-<li>在my.cnf文件的头部添加”[mysqld]”</li>
-<li>添加 “defaulr-storage-engine = 数据库引擎名（INNODB/MYISAM）”</li>
-</ol>
-<p><img src="https://pic2.zhimg.com/80/v2-0c7840a01f8528f637016beb71524467_hd.jpg" alt=""></p>
-<h4 id="重启MySQL服务"><a href="#重启MySQL服务" class="headerlink" title="重启MySQL服务"></a>重启MySQL服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysql restart</span><br></pre></td></tr></table></figure>
-<p>默认引擎修改完毕</p>
-<p><img src="https://pic2.zhimg.com/80/v2-0a65567f86cb6ea008f475d221ec4822_hd.jpg" alt=""></p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/alipy.png">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/wechat.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">MySQL 数据库引擎</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
+        <div class="article-info info-on-right">
+          
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/DataBase//" class="article-tag-list-link color4">DataBase</a>
+        			<a href="/categories/elasticsearch//" class="article-tag-list-link color4">elasticsearch</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/15/MySQL修改默认引擎的方法/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/08/15/修改Redis数据库个数的方法/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          修改Redis数据库个数的方法
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/08/12/Python告诉你爱情公寓和一出好戏的差别/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Python告诉你爱情公寓和一出好戏的差别</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看引擎show-engines"><span class="toc-number">1.</span> <span class="toc-text">查看引擎show engines</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主要区别"><span class="toc-number">2.</span> <span class="toc-text">主要区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改默认引擎方法"><span class="toc-number">3.</span> <span class="toc-text">修改默认引擎方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#切换路径："><span class="toc-number">3.1.</span> <span class="toc-text">切换路径：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#修改my-cnf文件："><span class="toc-number">3.2.</span> <span class="toc-text">修改my.cnf文件：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#重启MySQL服务"><span class="toc-number">3.3.</span> <span class="toc-text">重启MySQL服务</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
+    </div></section>
   
 
-  
-
-  
-  <div id="SOHUCS" sid="MySQL修改默认引擎的方法" ></div> 
-<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
-<script type="text/javascript">
-    window.changyan.api.config({
-        appid: "cytIMfJlL",
-        conf: "df032dc8d748a4551b4414fb7d7cb870"
-    });
-</script>
-</script>
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -463,10 +273,10 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
-		isCategory: false,
+		isCategory: true,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
