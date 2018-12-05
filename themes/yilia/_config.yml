@@ -3,9 +3,9 @@
 menu:
   HomePage: /
   Python: /categories/Python/
-  Elasticsearch: /categories/Elasticsearch
-  Golang: /categories/Golang
-  Postgresql: /categories/Postgresql
+  Elasticsearch: /categories/Elasticsearch/
+  Golang: /categories/Golang/
+  Postgresql: /categories/Postgresql/
 # SubNav
 subnav:
   github: "https://github.com/RidingRoad"
