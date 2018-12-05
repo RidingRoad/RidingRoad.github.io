@@ -187,28 +187,10 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>开发环境一致性很重要；<br>更重要的是版本号要一致；<br>尤其<strong>Python版本号</strong>。<br><strong>为什么？</strong><br>你以为3.4.0和3.5.0没多大区别吗？<br><strong>区别只有踩过了才知道</strong></p>
-<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><h4 id="业务需求"><a href="#业务需求" class="headerlink" title="业务需求"></a>业务需求</h4><p>开发一个很常见的注册时候的那种行政区域级联菜单并支持搜索。比如，选了中国，然后就返回中国下的所有省份，依此类推。<br><img src="https://i.loli.net/2018/12/01/5c024c8ec9c45.png" alt="行政区域级联菜单"></p>
-<h4 id="业务实现"><a href="#业务实现" class="headerlink" title="业务实现"></a>业务实现</h4><p>实现逻辑，查询数据库，根据客户已有的选择，限定条件，返回下一级菜单结果</p>
-<h4 id="代码发布"><a href="#代码发布" class="headerlink" title="代码发布"></a>代码发布</h4><p>本地测试没有问题后，撰写相关接口文档，代码合并到stage测试环境</p>
-<h4 id="问题出现"><a href="#问题出现" class="headerlink" title="问题出现"></a>问题出现</h4><p>登陆测试环境的Web端，出现点击登录无法请求成功，直接option请求都返回了500(internal server error)</p>
-<h4 id="一头雾水"><a href="#一头雾水" class="headerlink" title="一头雾水"></a>一头雾水</h4><p>代码实现部分和登录部分并没有任何交集啊。<br><img src="https://i.loli.net/2018/12/01/5c024fa3989cd.jpeg" alt=""><br>但是，有问题就解决问题，但解决问题前，赶紧回滚到上一版本，我可不想一堆人@我</p>
-<h3 id="着手分析"><a href="#着手分析" class="headerlink" title="着手分析"></a>着手分析</h3><p>好吧，只有我动了代码，这个bug非我莫属了。<br><img src="https://i.loli.net/2018/12/01/5c0250ba9ca10.png" alt=""><br>开始我的debug之旅：</p>
-<h4 id="代码再review"><a href="#代码再review" class="headerlink" title="代码再review"></a>代码再review</h4><p>打开postman，一顿的发送请求到本地服务端，everything is normal<br>可以确定的是<strong>我的代码我的崽没问题</strong><br>还有什么可能呢？<br>咦，出问题的最终代码是<strong>在服务器上</strong>有问题<br>那么，是不是服务器环境有问题？</p>
-<h4 id="服务器环境"><a href="#服务器环境" class="headerlink" title="服务器环境"></a>服务器环境</h4><p>在服务器中，最好的办法就是直接python run.py同时开启DEBUG模式<br>刷刷刷的跑起来，<br>最后，<br><strong>跪了</strong><br>出现重要的提示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SyntaxError: only named arguments may follow *expression</span><br></pre></td></tr></table></figure></p>
-<p>可以确定是<strong>服务器环境的问题</strong>了</p>
-<h4 id="到底哪个环境问题？"><a href="#到底哪个环境问题？" class="headerlink" title="到底哪个环境问题？"></a>到底哪个环境问题？</h4><p>在服务器中，存在很多服务，确定是哪个服务的问题显得尤为重要。<br>在执行python run.py出现了语法错误<br>使用的服务是Python<br>难道是Python的问题？<br>有什么问题导致Python语法错误呢？<br>本地Python运行好好的，线上Python语法错误<br>难道是版本不一样？<br>两边终端敲入python –version<br>本地Python版本：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python --version</span><br><span class="line">Python 3.6.6</span><br></pre></td></tr></table></figure></p>
-<p>线上Python版本：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python --version</span><br><span class="line">Python 3.4.0</span><br></pre></td></tr></table></figure></p>
-<p>可以确定是<strong>Python版本不一致导致语法错误</strong></p>
-<h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><p>服务器的环境服务进程之间存在千丝万缕的关系，我不可能把线上的Python版本升级到和我本地的一样(太多不可抗拒因素)，那么我迁就线上的版本，把本地的的版本降级。</p>
-<h3 id="原形毕露"><a href="#原形毕露" class="headerlink" title="原形毕露"></a>原形毕露</h3><p>在我把本地的Python版本由3.6.6指定为3.4.0之后，Pycharm IDE 为我指出原因所在，代码出现了红色下划线。<br><img src="https://i.loli.net/2018/12/01/5c0258dfdde97.png" alt=""><br>从上面的报错来看：<br>我本地之前使用了3.6.6，<em>表达式运行没问题。但线上的为3.4.0，**低于3.5的Python关于</em>表达式的要求是*表达式必须放在最后一个参数。**<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import random</span><br><span class="line"></span><br><span class="line">random_list = [random.randint(0, i) for i in range(10)]</span><br><span class="line">print(*(random_list), &apos;RidingRoad is foolish&apos;)</span><br><span class="line"># 低于Python3.5.0的版本会语法错误</span><br></pre></td></tr></table></figure></p>
-<h3 id="经验总结"><a href="#经验总结" class="headerlink" title="经验总结"></a>经验总结</h3><h4 id="环境一致性"><a href="#环境一致性" class="headerlink" title="环境一致性"></a>环境一致性</h4><p>如果我一开始，本地就和线上的Python环境一致，就不会出现这种问题了。所以，大家也确认一下线上的版本和自己本地开发的版本号一致，而不是2和3的版本，是要3系列的版本号也一样。</p>
-<h4 id="语法知识"><a href="#语法知识" class="headerlink" title="语法知识"></a>语法知识</h4><p>这种语法错误，谁知道会存在呢？<br>好了，学到一招了<br>3.5以前的*表达式必须放最后一个，3.5以后随便放。<strong>通用的就是*表达式都把它放最后一个</strong>。</p>
-<h4 id="bug思路总结"><a href="#bug思路总结" class="headerlink" title="bug思路总结"></a>bug思路总结</h4><ol>
-<li>确定代码没语法问题</li>
-<li>确定环境是否一致(版本是否一致)<h3 id="Python全面学习资料"><a href="#Python全面学习资料" class="headerlink" title="Python全面学习资料"></a>Python全面学习资料</h3>公号”Python孙行者”后台回复”电子书“即可。如果你有什么好东西好神器，欢迎后台私信，以后总结随文分享，一个人很渺小，有你的参与==&gt;人从众众众众众众众<br><img src="https://i.loli.net/2018/12/01/5c02600ab4745.png" alt=""></li>
-</ol>
-
+        <p>开发环境一致性很重要；<br>更重要的是版本号要一致；<br>尤其<strong>Python版本号</strong>。<br><strong>为什么？</strong><br>你以为3.4.0和3.5.0没多大区别吗？<br><strong>区别只有踩过了才知道</strong><br>
+        
+          <a class="article-more-a" href="/2018/12/01/都是Python3就万事大吉/#more">more >></a>
+        
       
 
       
