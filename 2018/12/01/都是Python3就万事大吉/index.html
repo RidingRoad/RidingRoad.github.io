@@ -81,6 +81,14 @@ var _hmt = _hmt || [];
 	        
 				<li><a href="/categories/Python/">Python</a></li>
 	        
+				<li><a href="/categories/Elasticsearch">Elasticsearch</a></li>
+	        
+				<li><a href="/categories/Golang">Golang</a></li>
+	        
+				<li><a href="/categories/databases/">Databases</a></li>
+	        
+				<li><a href="/categories/databases/postgresql">Postgresql</a></li>
+	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -133,6 +141,14 @@ var _hmt = _hmt || [];
 			
 				
 			
+				
+			
+				
+			
+				
+			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -148,12 +164,20 @@ var _hmt = _hmt || [];
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">HomePage</a></li>
+					<li style="width: 16.666666666666668%"><a href="/">HomePage</a></li>
 		        
-					<li style="width: 50%"><a href="/categories/Python/">Python</a></li>
+					<li style="width: 16.666666666666668%"><a href="/categories/Python/">Python</a></li>
+		        
+					<li style="width: 16.666666666666668%"><a href="/categories/Elasticsearch">Elasticsearch</a></li>
+		        
+					<li style="width: 16.666666666666668%"><a href="/categories/Golang">Golang</a></li>
+		        
+					<li style="width: 16.666666666666668%"><a href="/categories/databases/">Databases</a></li>
+		        
+					<li style="width: 16.666666666666668%"><a href="/categories/databases/postgresql">Postgresql</a></li>
 		        
 				</ul>
 			</nav>
@@ -363,6 +387,19 @@ var _hmt = _hmt || [];
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#业务需求"><span class="toc-number">1.1.</span> <span class="toc-text">业务需求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#业务实现"><span class="toc-number">1.2.</span> <span class="toc-text">业务实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代码发布"><span class="toc-number">1.3.</span> <span class="toc-text">代码发布</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#问题出现"><span class="toc-number">1.4.</span> <span class="toc-text">问题出现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#一头雾水"><span class="toc-number">1.5.</span> <span class="toc-text">一头雾水</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#着手分析"><span class="toc-number">2.</span> <span class="toc-text">着手分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#代码再review"><span class="toc-number">2.1.</span> <span class="toc-text">代码再review</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#服务器环境"><span class="toc-number">2.2.</span> <span class="toc-text">服务器环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#到底哪个环境问题？"><span class="toc-number">2.3.</span> <span class="toc-text">到底哪个环境问题？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#环境搭建"><span class="toc-number">3.</span> <span class="toc-text">环境搭建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原形毕露"><span class="toc-number">4.</span> <span class="toc-text">原形毕露</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#经验总结"><span class="toc-number">5.</span> <span class="toc-text">经验总结</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#环境一致性"><span class="toc-number">5.1.</span> <span class="toc-text">环境一致性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#语法知识"><span class="toc-number">5.2.</span> <span class="toc-text">语法知识</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#bug思路总结"><span class="toc-number">5.3.</span> <span class="toc-text">bug思路总结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Python全面学习资料"><span class="toc-number">6.</span> <span class="toc-text">Python全面学习资料</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -694,7 +731,7 @@ s.parentNode.insertBefore(hm, s);
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">Riding on the Road&lt;br&gt;&lt;br&gt;Do what I like&lt;br&gt;Live what I want</div>
   	  	
     	</section>
     
