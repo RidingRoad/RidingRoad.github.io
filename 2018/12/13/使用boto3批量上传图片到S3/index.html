@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 爬虫 | The Monkey King</title>
+  <title>使用boto3批量上传图片到S3 | The Monkey King</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="点点滴滴">
-<meta name="keywords" content="Python">
-<meta property="og:type" content="website">
-<meta property="og:title" content="The Monkey King">
-<meta property="og:url" content="http://yoursite.com/tags/爬虫/index.html">
+  <meta name="description" content="最近在工作中需要把本地的图片上传到亚马逊对象存储S3中供外链访问。 为了更快的实现，使用了Python 接口的boto3进行封装，实现批量上传图片到S3">
+<meta name="keywords" content="上传图片 s3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用boto3批量上传图片到S3">
+<meta property="og:url" content="http://yoursite.com/2018/12/13/使用boto3批量上传图片到S3/index.html">
 <meta property="og:site_name" content="The Monkey King">
-<meta property="og:description" content="点点滴滴">
+<meta property="og:description" content="最近在工作中需要把本地的图片上传到亚马逊对象存储S3中供外链访问。 为了更快的实现，使用了Python 接口的boto3进行封装，实现批量上传图片到S3">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-13T10:52:49.692Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The Monkey King">
-<meta name="twitter:description" content="点点滴滴">
+<meta name="twitter:title" content="使用boto3批量上传图片到S3">
+<meta name="twitter:description" content="最近在工作中需要把本地的图片上传到亚马逊对象存储S3中供外链访问。 为了更快的实现，使用了Python 接口的boto3进行封装，实现批量上传图片到S3">
   
     <link rel="alternative" href="/atom.xml" title="The Monkey King" type="application/atom+xml">
   
@@ -179,48 +180,94 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<article id="post-使用boto3批量上传图片到S3" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/29/段子一键取并存为Markdown文档/" class="archive-article-date">
-  	<time datetime="2018-07-29T01:36:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-29 09:36:01</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/29/段子一键取并存为Markdown文档/">段子一键取并存为Markdown文档</a>
+    <h1 class="article-title" itemprop="name">
+      使用boto3批量上传图片到S3
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/12/13/使用boto3批量上传图片到S3/" class="archive-article-date">
+  	<time datetime="2018-12-13T10:48:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-13 18:48:33</time>
+</a>
+        
+        
+                    		<span class="archive-article-date">
+                    			阅读量 <span id="busuanzi_value_page_pv"></span>
+                    		</span>
+       
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在工作中需要把本地的图片上传到亚马逊对象存储S3中供外链访问。</p>
+<p>为了更快的实现，使用了Python 接口的boto3进行封装，实现批量上传图片到S3</p>
+<a id="more"></a>
+<p>主要有以下的几个函数：</p>
+<p>1、实现S3的连接<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># coding: utf-8</span><br><span class="line">import boto3</span><br><span class="line">import os</span><br><span class="line"></span><br><span class="line">AWS_ACCESS_KEY_ID = &apos;xxxx&apos;</span><br><span class="line">AWS_SECRET_ACCESS_KEY = &apos;xxx&apos;</span><br><span class="line">BUCKET_NAME = &apos;xxxx&apos;</span><br><span class="line">REGION_NAME = &apos;xxx&apos;</span><br><span class="line">PHOTO_FOLDER = &apos;xxxx/photo&apos;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def init_s3_logo_photo(region_name=REGION_NAME, aws_access_key_id=AWS_ACCESS_KEY_ID,</span><br><span class="line">                       aws_secret_access_key=AWS_SECRET_ACCESS_KEY):</span><br><span class="line">    s3 = boto3.resource(&apos;s3&apos;, region_name=region_name, aws_access_key_id=aws_access_key_id,</span><br><span class="line">                        aws_secret_access_key=aws_secret_access_key)</span><br><span class="line">    return s3</span><br></pre></td></tr></table></figure></p>
+<p>2、实现单个图片的上传<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def upload_logo_photo(logo_photo_s3=init_s3_logo_photo(), bucket_name=BUCKET_NAME, photo_name=None):</span><br><span class="line">    with open(os.path.join(PHOTO_FOLDER, photo_name), &apos;rb&apos;) as f:</span><br><span class="line">        photo_stream = f.read()</span><br><span class="line">        try:</span><br><span class="line">            # upload logo to s3</span><br><span class="line">            logo_photo_s3.Bucket(bucket_name).put_object(Key=photo_name, Body=photo_stream)</span><br><span class="line">            print(&quot;&#123;&#125; upload done&quot;.format(photo_name))</span><br><span class="line">        except Exception as e:</span><br><span class="line">            print(&quot;upload &#123;&#125; error:&#123;&#125;&quot;.format(photo_name, e))</span><br></pre></td></tr></table></figure></p>
+<p>3、实现单个图片的删除<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">def delete_logo_photo_by_name(logo_photo_s3=init_s3_logo_photo(), bucket_name=BUCKET_NAME, photo_name=None):</span><br><span class="line">    try:</span><br><span class="line">        # delete from s3</span><br><span class="line">        logo_photo_s3.Object(bucket_name, photo_name).delete()</span><br><span class="line">        print(&quot;Delete &#123;&#125; OK from s3!&quot;.format(photo_name))</span><br><span class="line">    except Exception as e:</span><br><span class="line">        print(&quot;Delete &#123;&#125; ERROR:&#123;&#125;&quot;.format(photo_name, e))</span><br></pre></td></tr></table></figure></p>
+<p>4、实现整个bucket的内容的清除<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def delete_whole_logo():</span><br><span class="line">    # this func will delete all content in bucket data</span><br><span class="line">    s3 = init_s3_logo_photo()</span><br><span class="line">    b = s3.Bucket(BUCKET_NAME)</span><br><span class="line">    for key in list(b.objects.all()):</span><br><span class="line">        delete_logo_photo_by_name(photo_name=key.key)</span><br></pre></td></tr></table></figure></p>
+<p>5、实现上传整个文件夹里的图片并做去除非文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">def upload_logo_photo_by_folder():</span><br><span class="line">    # 1. to get document list</span><br><span class="line">    os.chdir(PHOTO_FOLDER)</span><br><span class="line">    logo_list = os.listdir(PHOTO_FOLDER)</span><br><span class="line"></span><br><span class="line">    # 2. which isn&apos;t file will be removed from logo_list</span><br><span class="line">    for logo in logo_list:</span><br><span class="line">        if not os.path.isfile(os.path.abspath(logo)):</span><br><span class="line">            logo_list.remove(logo)</span><br><span class="line">        upload_logo_photo(photo_name=logo)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    upload_logo_photo_by_folder()</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipy.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">上传图片 s3</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -233,17 +280,127 @@ var _hmt = _hmt || [];
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/12/13/使用boto3批量上传图片到S3/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/12/05/Elastidsearch待续/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Elastidsearch待续</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
   
 
-    
+  
+
+  
+  <div id="SOHUCS" sid="使用boto3批量上传图片到S3" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cytIMfJlL",
+        conf: "df032dc8d748a4551b4414fb7d7cb870"
+    });
+</script>
+</script>
+  
+
+  
+
+  
 
 
           </div>
@@ -284,9 +441,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
