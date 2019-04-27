@@ -1,6 +1,7 @@
 <%
-  var sUrl = url.replace(/index\.html$/, '');
-  sUrl = /^(http:|https:)\/\//.test(sUrl) ? sUrl : 'http:' + sUrl;
+ var sUrl = url.replace(/index\.html$/, '');
+ sUrl = url.replace(/http:\/\/yoursite\.com/, '');
+ sUrl = "https://ridingroad.github.io" + sUrl;
 %>
 <div class="share-btn share-icons tooltip-left">
   <div class="tooltip tooltip-east">
