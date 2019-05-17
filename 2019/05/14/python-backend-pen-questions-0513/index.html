@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>The Monkey King</title>
+  <title>Python后台开发笔试题0513 | The Monkey King</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: Python后台开发笔试题0513comments: truedate: 2019-05-14 12:54:47tags:  pen_questionscategories: Python自己尝试做了一些常见的Python后台开发笔试题，其中第3题，希望有更好的解决方案，欢迎评论区留言留下你的方法。">
-<meta name="keywords" content="Python">
+  <meta name="description" content="自己尝试做了一些常见的Python后台开发笔试题，其中第3题，希望有更好的解决方案，欢迎评论区留言留下你的方法。">
+<meta name="keywords" content="pen_questions">
 <meta property="og:type" content="article">
-<meta property="og:title" content="The Monkey King">
+<meta property="og:title" content="Python后台开发笔试题0513">
 <meta property="og:url" content="http://yoursite.com/2019/05/14/python-backend-pen-questions-0513/index.html">
 <meta property="og:site_name" content="The Monkey King">
-<meta property="og:description" content="title: Python后台开发笔试题0513comments: truedate: 2019-05-14 12:54:47tags:  pen_questionscategories: Python自己尝试做了一些常见的Python后台开发笔试题，其中第3题，希望有更好的解决方案，欢迎评论区留言留下你的方法。">
+<meta property="og:description" content="自己尝试做了一些常见的Python后台开发笔试题，其中第3题，希望有更好的解决方案，欢迎评论区留言留下你的方法。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-14T04:57:23.315Z">
+<meta property="og:updated_time" content="2019-05-17T02:04:51.403Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The Monkey King">
-<meta name="twitter:description" content="title: Python后台开发笔试题0513comments: truedate: 2019-05-14 12:54:47tags:  pen_questionscategories: Python自己尝试做了一些常见的Python后台开发笔试题，其中第3题，希望有更好的解决方案，欢迎评论区留言留下你的方法。">
+<meta name="twitter:title" content="Python后台开发笔试题0513">
+<meta name="twitter:description" content="自己尝试做了一些常见的Python后台开发笔试题，其中第3题，希望有更好的解决方案，欢迎评论区留言留下你的方法。">
   
     <link rel="alternative" href="/atom.xml" title="The Monkey King" type="application/atom+xml">
   
@@ -186,14 +186,29 @@ var _hmt = _hmt || [];
 <article id="post-python-backend-pen-questions-0513" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Python后台开发笔试题0513
+    </h1>
+  
+
+        
+        <a href="/2019/05/14/python-backend-pen-questions-0513/" class="archive-article-date">
+  	<time datetime="2019-05-14T04:54:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-14 12:54:47</time>
+</a>
+        
+        
+                    		<span class="archive-article-date">
+                    			阅读量 <span id="busuanzi_value_page_pv"></span>
+                    		</span>
+       
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p>title: Python后台开发笔试题0513<br>comments: true<br>date: 2019-05-14 12:54:47<br>tags:</p>
-<ul>
-<li>pen_questions<br>categories:</li>
-<li>Python<br>自己尝试做了一些常见的Python后台开发笔试题，其中第3题，希望有更好的解决方案，欢迎评论区留言留下你的方法。<a id="more"></a></li>
-</ul>
+        <p>自己尝试做了一些常见的Python后台开发笔试题，其中第3题，希望有更好的解决方案，欢迎评论区留言留下你的方法。<br><a id="more"></a></p>
 <ol>
 <li><p>用Python实现Fibonacci数列<br>这里使用迭代器进行实现</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># fabonacci数列：后面的数字等于前面两个数之和，第一个数是0， 第二个数是1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def fabonacci(length):</span><br><span class="line">    a = 0</span><br><span class="line">    b = 1</span><br><span class="line">    counter = 0</span><br><span class="line">    while counter &lt; length:</span><br><span class="line">        counter += 1</span><br><span class="line">        yield a</span><br><span class="line">        a, b = b, a + b</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def fixed_length_fabonacci(length):</span><br><span class="line">    return [i for i in fabonacci(length)]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(fixed_length_fabonacci(10))</span><br><span class="line"># [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]</span><br></pre></td></tr></table></figure>
@@ -213,11 +228,7 @@ var _hmt = _hmt || [];
 </ol>
 <p>（1）写出相应的运行结果，并解释为什么<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">print(return_list(1))</span><br><span class="line">print(return_list(2, []))</span><br><span class="line">print(return_list(3))</span><br><span class="line"># [1]</span><br><span class="line"># [2]</span><br><span class="line"># [1, 3]</span><br><span class="line"># 使用可变对象为默认参数时，只会初始化一次</span><br></pre></td></tr></table></figure></p>
 <p>(2)如果希望预期输出如下，应该怎么修改？<br>预期结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[1]</span><br><span class="line">[2]</span><br><span class="line">[3]</span><br></pre></td></tr></table></figure></p>
-<p>代码修改：<br><code>def return_list(val, lists=None):
-    if not lists:
-        lists = []
-    lists.append(val)
-    return lists</code>—</p>
+<p>代码修改：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">def return_list(val, lists=None):</span><br><span class="line">    if not lists:</span><br><span class="line">        lists = []</span><br><span class="line">    lists.append(val)</span><br><span class="line">    return lists</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -257,7 +268,29 @@ var _hmt = _hmt || [];
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">pen_questions</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Python//" class="article-tag-list-link color2">Python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -657,6 +690,10 @@ s.parentNode.insertBefore(hm, s);
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">考拉咨猜想</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pen_questions</a>
               </li>
             
             <div class="clearfix"></div>
