@@ -1,10 +1,10 @@
 ---
-title: python装饰器所有常见用法
+title: Python装饰器所有常见用法
 comments: true
 date: 2019-05-25 17:32:49
 tags:
 - decorator
-categories：
+categories:
 - Python
 ---
 此篇文章包含装饰器四部分内容：
