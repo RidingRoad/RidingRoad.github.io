@@ -6,20 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>猜数字小程序 | The Monkey King</title>
+  <title>Python函数传参既不是传值也不是传引用 | The Monkey King</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一个小程序:猜数字">
-<meta name="keywords" content="随机,猜数字">
+  <meta name="description" content="在进入Python函数传参是传值还是传引用的问题前，先介绍一下下面的4个基本概念：1、形参；2、实参；3、传值；4、传引用。">
+<meta name="keywords" content="函数传参">
 <meta property="og:type" content="article">
-<meta property="og:title" content="猜数字小程序">
-<meta property="og:url" content="http://yoursite.com/2018/07/24/猜数字小程序/index.html">
+<meta property="og:title" content="Python函数传参既不是传值也不是传引用">
+<meta property="og:url" content="http://yoursite.com/2019/05/28/python-pass-parameter/index.html">
 <meta property="og:site_name" content="The Monkey King">
-<meta property="og:description" content="一个小程序:猜数字">
+<meta property="og:description" content="在进入Python函数传参是传值还是传引用的问题前，先介绍一下下面的4个基本概念：1、形参；2、实参；3、传值；4、传引用。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-25T10:12:00.672Z">
+<meta property="og:image" content="https://i.loli.net/2019/05/27/5cec07813cbc156152.png">
+<meta property="og:image" content="https://i.loli.net/2019/05/25/5ce9014d84a0d55925.png">
+<meta property="og:updated_time" content="2019-05-28T01:30:04.911Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="猜数字小程序">
-<meta name="twitter:description" content="一个小程序:猜数字">
+<meta name="twitter:title" content="Python函数传参既不是传值也不是传引用">
+<meta name="twitter:description" content="在进入Python函数传参是传值还是传引用的问题前，先介绍一下下面的4个基本概念：1、形参；2、实参；3、传值；4、传引用。">
+<meta name="twitter:image" content="https://i.loli.net/2019/05/27/5cec07813cbc156152.png">
   
     <link rel="alternative" href="/atom.xml" title="The Monkey King" type="application/atom+xml">
   
@@ -183,20 +186,20 @@ var _hmt = _hmt || [];
             <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
-<article id="post-猜数字小程序" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-python-pass-parameter" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      猜数字小程序
+      Python函数传参既不是传值也不是传引用
     </h1>
   
 
         
-        <a href="/2018/07/24/猜数字小程序/" class="archive-article-date">
-  	<time datetime="2018-07-24T00:48:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-24 08:48:00</time>
+        <a href="/2019/05/28/python-pass-parameter/" class="archive-article-date">
+  	<time datetime="2019-05-28T01:27:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-28 09:27:47</time>
 </a>
         
         
@@ -208,10 +211,17 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><div class="output_wrapper" id="output_wrapper_id" style="font-size: 18px; color: rgb(62, 62, 62); line-height: 1.6; word-spacing: 0px; letter-spacing: 0px; font-family: 'Helvetica Neue', Helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif;"><h1 id="h" style="color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px; font-weight: bold; font-size: 1.6em;"><span style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px;">一个小程序:猜数字</span></h1><a id="more"></a></div></p>
-<h2 id="h-1" style="color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px; font-weight: bold; font-size: 1.4em;"><span style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px;">下面来实现一个猜数字的简易程序:</span></h2>
-
-<h3 id="h-2" style="color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px; font-weight: bold; border-bottom: 2px solid rgb(63, 63, 63); margin-bottom: 50px; font-size: 1em;"><span style="font-size: inherit; line-height: inherit; margin: 0px; display: inline-block; background: rgb(63, 63, 63); color: rgb(255, 255, 255); padding: 10px 16px; border-radius: 5px; box-shadow: black 5px 5px 10px;">思路如下:</span></h3><br><ol style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px; padding-left: 32px; list-style-type: decimal;"><br><li style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px; margin-bottom: 0.5em;"><span style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px;">使用随机模块的方法生成一个1到20的随机数,random.randint(1,20)</span></li><br><li style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px; margin-bottom: 0.5em;"><span style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px;">总共有6次猜测机会,每次都提示大了还是小了</span></li><br><li style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px; margin-bottom: 0.5em;"><span style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px;">猜对了,么么哒,使用break 提前退出循环;否则输出,死鬼6次都猜错果</span></li><br></ol><br><h3 id="h-3" style="color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px; font-weight: bold; border-bottom: 2px solid rgb(63, 63, 63); margin-bottom: 50px; font-size: 1em;"><span style="font-size: inherit; line-height: inherit; margin: 0px; display: inline-block; background: rgb(63, 63, 63); color: rgb(255, 255, 255); padding: 10px 16px; border-radius: 5px; box-shadow: black 5px 5px 10px;">效果如下</span></h3><br><pre style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px;"><code class="python language-python hljs" style="margin: 0px 2px; line-height: 18px; font-size: 16px; font-weight: normal; word-spacing: 0px; letter-spacing: 0px; font-family: Consolas, Inconsolata, Courier, monospace; border-radius: 0px; color: rgb(169, 183, 198); background: rgb(40, 43, 46); overflow-x: auto; padding: 0.5em; display: block !important; white-space: pre !important; word-wrap: normal !important; word-break: normal !important; overflow: auto !important;">小可爱:我心里有个<span class="hljs-number" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(174, 135, 250); word-wrap: inherit !important; word-break: inherit !important;">1</span>到<span class="hljs-number" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(174, 135, 250); word-wrap: inherit !important; word-break: inherit !important;">20</span>的幸运数字<br>小可爱:猜猜(比心)<br><br>么么哒:<span class="hljs-number" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(174, 135, 250); word-wrap: inherit !important; word-break: inherit !important;">10</span><br>小可爱:大了哦,笨蛋<br>小可爱:猜猜(比心)<br><br>么么哒:<span class="hljs-number" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(174, 135, 250); word-wrap: inherit !important; word-break: inherit !important;">5</span><br>小可爱:小了耶,傻瓜<br>小可爱:猜猜(比心)<br><br>么么哒:<span class="hljs-number" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(174, 135, 250); word-wrap: inherit !important; word-break: inherit !important;">7</span><br>小可爱:小了耶,傻瓜<br>小可爱:猜猜(比心)<br><br>么么哒:<span class="hljs-number" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(174, 135, 250); word-wrap: inherit !important; word-break: inherit !important;">8</span><br>小可爱:心有灵犀哦,你只用<span class="hljs-number" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(174, 135, 250); word-wrap: inherit !important; word-break: inherit !important;">5</span>次就猜到我的心思<br></code></pre><br><h3 id="h-4" style="color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px; font-weight: bold; border-bottom: 2px solid rgb(63, 63, 63); margin-bottom: 50px; font-size: 1em;"><span style="font-size: inherit; line-height: inherit; margin: 0px; display: inline-block; background: rgb(63, 63, 63); color: rgb(255, 255, 255); padding: 10px 16px; border-radius: 5px; box-shadow: black 5px 5px 10px;">实现代码</span></h3><br><pre style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px;"><code class="python language-python hljs" style="margin: 0px 2px; line-height: 18px; font-size: 16px; font-weight: normal; word-spacing: 0px; letter-spacing: 0px; font-family: Consolas, Inconsolata, Courier, monospace; border-radius: 0px; color: rgb(169, 183, 198); background: rgb(40, 43, 46); overflow-x: auto; padding: 0.5em; display: block !important; white-space: pre !important; word-wrap: normal !important; word-break: normal !important; overflow: auto !important;"><span class="hljs-comment" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(128, 128, 128); word-wrap: inherit !important; word-break: inherit !important;">#&nbsp;随机模块</span><br><span class="hljs-keyword" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(248, 35, 117); word-wrap: inherit !important; word-break: inherit !important;">import</span>&nbsp;random<br><br><span class="hljs-comment" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(128, 128, 128); word-wrap: inherit !important; word-break: inherit !important;">#&nbsp;定义猜数字函数</span><br><span class="hljs-function" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(248, 35, 117); word-wrap: inherit !important; word-break: inherit !important;"><span class="hljs-keyword" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(248, 35, 117); word-wrap: inherit !important; word-break: inherit !important;">def</span>&nbsp;<span class="hljs-title" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(165, 218, 45); word-wrap: inherit !important; word-break: inherit !important;">guessNumber</span><span class="hljs-params" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(255, 152, 35); word-wrap: inherit !important; word-break: inherit !important;">()</span>:</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-string" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(238, 220, 112); word-wrap: inherit !important; word-break: inherit !important;">“””这是一个猜数字游戏,6次机会”””</span><br><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-comment" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(128, 128, 128); word-wrap: inherit !important; word-break: inherit !important;">#&nbsp;使用随机函数生成一个随机整数并保存在变量secretNumber</span><br>&nbsp;&nbsp;&nbsp;&nbsp;secretNumber&nbsp;=&nbsp;random.randint(<span class="hljs-number" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(174, 135, 250); word-wrap: inherit !important; word-break: inherit !important;">1</span>,&nbsp;<span class="hljs-number" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(174, 135, 250); word-wrap: inherit !important; word-break: inherit !important;">20</span>)<br>&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="hljs-string" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(238, 220, 112); word-wrap: inherit !important; word-break: inherit !important;">‘小可爱:我心里有个1到20的幸运数字’</span>)<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-comment" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(128, 128, 128); word-wrap: inherit !important; word-break: inherit !important;">#&nbsp;计数器</span><br>&nbsp;&nbsp;&nbsp;&nbsp;guessesTaken&nbsp;=&nbsp;<span class="hljs-number" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(174, 135, 250); word-wrap: inherit !important; word-break: inherit !important;">0</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-comment" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(128, 128, 128); word-wrap: inherit !important; word-break: inherit !important;">#&nbsp;guess用来保存玩家的数字</span><br>&nbsp;&nbsp;&nbsp;&nbsp;guess&nbsp;=&nbsp;<span class="hljs-keyword" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(248, 35, 117); word-wrap: inherit !important; word-break: inherit !important;">None</span><br><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-comment" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(128, 128, 128); word-wrap: inherit !important; word-break: inherit !important;">#&nbsp;使用range(1,7)控制循环6次,range(start,end,step)左闭右开</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-keyword" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(248, 35, 117); word-wrap: inherit !important; word-break: inherit !important;">for</span>&nbsp;guessesTaken&nbsp;<span class="hljs-keyword" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(248, 35, 117); word-wrap: inherit !important; word-break: inherit !important;">in</span>&nbsp;range(<span class="hljs-number" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(174, 135, 250); word-wrap: inherit !important; word-break: inherit !important;">1</span>,&nbsp;<span class="hljs-number" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(174, 135, 250); word-wrap: inherit !important; word-break: inherit !important;">7</span>):<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-comment" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(128, 128, 128); word-wrap: inherit !important; word-break: inherit !important;">#&nbsp;么么哒最多会问6次,不然发火了.</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="hljs-string" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(238, 220, 112); word-wrap: inherit !important; word-break: inherit !important;">‘小可爱:猜猜(比心)’</span>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-comment" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(128, 128, 128); word-wrap: inherit !important; word-break: inherit !important;">#&nbsp;么么哒输入数字</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-keyword" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(248, 35, 117); word-wrap: inherit !important; word-break: inherit !important;">global</span>&nbsp;guess<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;guess&nbsp;=&nbsp;int(input(<span class="hljs-string" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(238, 220, 112); word-wrap: inherit !important; word-break: inherit !important;">“么么哒:”</span>))<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-comment" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(128, 128, 128); word-wrap: inherit !important; word-break: inherit !important;">#&nbsp;计数器加一</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;guessesTaken&nbsp;+=&nbsp;<span class="hljs-number" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(174, 135, 250); word-wrap: inherit !important; word-break: inherit !important;">1</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-keyword" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(248, 35, 117); word-wrap: inherit !important; word-break: inherit !important;">if</span>&nbsp;guess&nbsp;&lt;&nbsp;secretNumber:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="hljs-string" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(238, 220, 112); word-wrap: inherit !important; word-break: inherit !important;">‘小可爱:小了耶,傻瓜’</span>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-keyword" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(248, 35, 117); word-wrap: inherit !important; word-break: inherit !important;">elif</span>&nbsp;guess&nbsp;&gt;&nbsp;secretNumber:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="hljs-string" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(238, 220, 112); word-wrap: inherit !important; word-break: inherit !important;">‘小可爱:大了哦,笨蛋’</span>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-keyword" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(248, 35, 117); word-wrap: inherit !important; word-break: inherit !important;">else</span>:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-keyword" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(248, 35, 117); word-wrap: inherit !important; word-break: inherit !important;">break</span>&nbsp;&nbsp;<span class="hljs-comment" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(128, 128, 128); word-wrap: inherit !important; word-break: inherit !important;">#&nbsp;不大不小那就是对了,不用继续猜了,退出循环</span><br><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-keyword" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(248, 35, 117); word-wrap: inherit !important; word-break: inherit !important;">if</span>&nbsp;guess&nbsp;==&nbsp;secretNumber:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="hljs-string" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(238, 220, 112); word-wrap: inherit !important; word-break: inherit !important;">‘么么哒,你只用’</span>&nbsp;+&nbsp;str(guessesTaken)&nbsp;+&nbsp;<span class="hljs-string" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(238, 220, 112); word-wrap: inherit !important; word-break: inherit !important;">‘次就猜到我的心思,心有灵犀哦’</span>)<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-keyword" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(248, 35, 117); word-wrap: inherit !important; word-break: inherit !important;">else</span>:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(<span class="hljs-string" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(238, 220, 112); word-wrap: inherit !important; word-break: inherit !important;">‘死鬼,哎,我的幸运数字是&nbsp;’</span>&nbsp;+&nbsp;str(secretNumber))<br><br><br><span class="hljs-keyword" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(248, 35, 117); word-wrap: inherit !important; word-break: inherit !important;">if</span>&nbsp;<strong>name</strong>&nbsp;==&nbsp;<span class="hljs-string" style="font-size: inherit; line-height: inherit; margin: 0px; padding: 0px; color: rgb(238, 220, 112); word-wrap: inherit !important; word-break: inherit !important;">“<strong>main</strong>“</span>:<br>&nbsp;&nbsp;&nbsp;&nbsp;guessNumber()<br></code></pre><br><h3 id="h-5" style="color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px; font-weight: bold; border-bottom: 2px solid rgb(63, 63, 63); margin-bottom: 50px; font-size: 1em;"><span style="font-size: inherit; line-height: inherit; margin: 0px; display: inline-block; background: rgb(63, 63, 63); color: rgb(255, 255, 255); padding: 10px 16px; border-radius: 5px; box-shadow: black 5px 5px 10px;">源码,会有的,但建议自己悄悄实现哦</span></h3><br><p style="font-size: inherit; color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px;">公众号Python孙行者后台回复<strong style="font-size: inherit; color: inherit; line-height: inherit; margin: 0px; padding: 0px; font-weight: bold;">“么么哒猜数字”</strong>即可</p><br><h3 id="h-6" style="color: inherit; line-height: inherit; padding: 0px; margin: 1.5em 0px; font-weight: bold; border-bottom: 2px solid rgb(63, 63, 63); margin-bottom: 50px; font-size: 1em;"><span style="font-size: inherit; line-height: inherit; margin: 0px; display: inline-block; background: rgb(63, 63, 63); color: rgb(255, 255, 255); padding: 10px 16px; border-radius: 5px; box-shadow: black 5px 5px 10px;">猜数字使用二分法哦,概率杠杠的</span></h3>
+        <p>在进入Python函数传参是传值还是传引用的问题前，先介绍一下下面的4个基本概念：<br>1、形参；<br>2、实参；<br>3、传值；<br>4、传引用。<br><a id="more"></a></p>
+<h3 id="形参和实参"><a href="#形参和实参" class="headerlink" title="形参和实参"></a>形参和实参</h3><p><strong>形参</strong>：在函数定义中的参数的名字被叫做形式参数(形参)<br><strong>实参</strong>：调用函数时所赋值给形式参数(形参)的变量是实际参数(实参)<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">pen_name = <span class="string">'RidingRoad'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_name</span><span class="params">(name)</span>:</span></span><br><span class="line">    <span class="comment"># name 是形参</span></span><br><span class="line">    print(<span class="string">"My name is &#123;&#125;"</span>.format(name))</span><br><span class="line"></span><br><span class="line"><span class="comment"># pen_name是实参</span></span><br><span class="line">my_name(pen_name)</span><br></pre></td></tr></table></figure></p>
+<h3 id="传值"><a href="#传值" class="headerlink" title="传值"></a>传值</h3><p>传值：<br>实际参数的值赋值给形式参数后，在函数内对形式参数做任何修改都不会影响到实际参数。<br>简言之就是值拷贝，就是你在我这沾了”敬业福“，你沾到”敬业福“后，你对你拥有的“敬业福”是送给别人还是合成，都不会影响到我的“敬业福”的状态。</p>
+<h3 id="传引用"><a href="#传引用" class="headerlink" title="传引用"></a>传引用</h3><p>传引用：<br>传引用的意思就是形式参数和实际参数都指向同一块内存， 你即是我，我即是你，在函数内对形式参数的操作就是对实际参数的操作。</p>
+<h3 id="Python函数传参"><a href="#Python函数传参" class="headerlink" title="Python函数传参"></a>Python函数传参</h3><p>很多人对Python函数传参是传值还是传引用这个问题的理解，会认为可变对象传引用，不可变对象传值。但实际情况真的是这样吗？<br>常见的可变对象：列表；字典；集合<br>常见的不可变对象：数值型；字符串；元组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">outer_list = [1, 2, 3]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def pass_parameter(inner_list=None):</span><br><span class="line">    if not isinstance(inner_list, list):</span><br><span class="line">        raise Exception(&apos;&#123;&#125; is not list.&apos;.format(inner_list))</span><br><span class="line">    print(&apos;inner_list id is &#123;&#125;&apos;.format(id(inner_list)))</span><br><span class="line">    # (1)按照传可变对象传引用的说法，修改inner_list即等同修改outer_list</span><br><span class="line">    inner_list.append(4)</span><br><span class="line">    print(&apos;inner_list.append(4)后值为&#123;&#125;, id为&#123;&#125;&apos;.format(inner_list, id(inner_list)))</span><br><span class="line">    # (2)按照传可变对象传引用的说法，修改inner_list即等同修改outer_list</span><br><span class="line">    inner_list = [5, 6, 7]</span><br><span class="line">    print(&apos;inner_list = [5, 6, 7]后的id为&#123;&#125;&apos;.format(id(inner_list)))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(&apos;outer_list id is &#123;&#125;&apos;.format(id(outer_list)))</span><br><span class="line">pass_parameter(inner_list=outer_list)</span><br><span class="line">print(&quot;修改后outer_list的值是&#123;&#125;, id是&#123;&#125;&quot;.format(outer_list, id(outer_list)))</span><br></pre></td></tr></table></figure></p>
+<p>在(1)处修改列表的值，内部和外部的列表都同时被修改成功；<br>但在(2)处修改内部列表的值却没有成功修改外部列表的值；</p>
+<p>上面的例子说明了，可变对象传引用，不可变对象传值的说法是不正确的。<br>在这里需要指出的是， 在Python中万物皆对象， <strong>Python函数传参是传递整个对象</strong>。<br><img src="https://i.loli.net/2019/05/27/5cec07813cbc156152.png" alt="Python函数传参是传对象"><br>例子中的变量outer_list 的值[1, 2, 3]是一个对象，变量outer_list只是贴在[1, 2, 3]这个对象上一个标签而已。</p>
+<p>当执行pass_parameter(inner_list=outer_list)时，相当于执行pass_parameter(inner_list=[1, 2, 3])，此时对象[1, 2, 3]已经贴有了两个标签(outer_list, inner_list)。</p>
+<p>当执行inner_list.append(4)时，由于inner_list所指向的对象[1, 2, 3]是可变对象，Python会在其后添加4后返回原来的id，即返回原来的对象， 由于inner_list和outer_list都是指向[1, 2, 3]，所以对对象[1, 2, 3]的修改，会同时在inner_list和outer_list上得到体现。</p>
+<p>当执行inner_list = [5, 6, 7]时， Python会新生成对象[5, 6, 7]， 并把原来贴在[1, 2, 3, 4]的标签inner_list贴在了对象[5, 6, 7]， 但outer_list仍贴在对象[1, 2, 3, 4]。</p>
+<p>想了解更多关于Python的知识，看下面<br><img src="https://i.loli.net/2019/05/25/5ce9014d84a0d55925.png" alt=""></p>
 
       
 
@@ -256,11 +266,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随机</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">猜数字</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">函数传参</a>
         		</li>
       		
 		</ul>
@@ -273,10 +279,6 @@ var _hmt = _hmt || [];
 			 
         		<li class="article-tag-list-item">
         			<a href="/categories/Python//" class="article-tag-list-link color2">Python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Python/Fun//" class="article-tag-list-link color4">Fun</a>
         		</li>
       		
 		</ul>
@@ -331,7 +333,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//www.aninfo.cc/api/qr/?url=https://ridingroad.github.io/2018/07/24/猜数字小程序/index.html" alt="微信分享二维码">
+      <img src="//www.aninfo.cc/api/qr/?url=https://ridingroad.github.io/2019/05/28/python-pass-parameter/index.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -346,18 +348,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2018/07/24/使用正则校验密码强度以及正则版的Python字符串strip处理函数/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          使用正则校验密码强度以及正则版的Python字符串strip处理函数
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/07/24/Python自动化Markdown无序列表/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Python自动化Markdown无序列表</div>
+    <a href="/2019/05/25/python-decorator/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Python装饰器所有常见用法</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -384,7 +377,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#h"><span class="toc-number">1.</span> <span class="toc-text">一个小程序:猜数字</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#h-1"><span class="toc-number">1.1.</span> <span class="toc-text">下面来实现一个猜数字的简易程序:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#h-2"><span class="toc-number">1.1.1.</span> <span class="toc-text">思路如下:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#h-3"><span class="toc-number">1.1.2.</span> <span class="toc-text">效果如下</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#h-4"><span class="toc-number">1.1.3.</span> <span class="toc-text">实现代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#h-5"><span class="toc-number">1.1.4.</span> <span class="toc-text">源码,会有的,但建议自己悄悄实现哦</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#h-6"><span class="toc-number">1.1.5.</span> <span class="toc-text">猜数字使用二分法哦,概率杠杠的</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#形参和实参"><span class="toc-number">1.</span> <span class="toc-text">形参和实参</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#传值"><span class="toc-number">2.</span> <span class="toc-text">传值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#传引用"><span class="toc-number">3.</span> <span class="toc-text">传引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Python函数传参"><span class="toc-number">4.</span> <span class="toc-text">Python函数传参</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -400,7 +393,7 @@ var _hmt = _hmt || [];
   
 
   
-  <div id="SOHUCS" sid="猜数字小程序" ></div> 
+  <div id="SOHUCS" sid="python-pass-parameter" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
